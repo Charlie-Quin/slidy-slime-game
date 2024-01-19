@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxy4fy5iij8xt"]
+
+[ext_resource type="Script" path="res://blob.gd" id="1_g6tdr"]
+[ext_resource type="Texture2D" uid="uid://hbcgpxoa1mal" path="res://blob.png" id="2_jd0xm"]
+
+[node name="blob" type="Node2D"]
+script = ExtResource("1_g6tdr")
+
+[node name="Blob" type="Sprite2D" parent="."]
+texture = ExtResource("2_jd0xm")
+
+[node name="raycast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 32)
+collision_mask = 4

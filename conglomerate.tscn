@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4vm8pnf0byoj"]
+
+[ext_resource type="Script" path="res://conglomerate.gd" id="1_mp1ab"]
+
+[node name="conglomerate" type="Node2D"]
+script = ExtResource("1_mp1ab")
