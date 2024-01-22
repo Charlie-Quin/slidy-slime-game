@@ -22,10 +22,8 @@ func _process(delta):
 	
 
 var lastPos = Vector2.ZERO
-var lastDir = Vector2.ZERO
 var currentlyTouchingWall = false
 var currentlyTouchingBlob = false
-
 var blobInFront = null
 var blobBehind = null
 

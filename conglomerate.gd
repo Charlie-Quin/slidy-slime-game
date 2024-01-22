@@ -36,6 +36,8 @@ func moveBlobs(direction):
 		blob.fixed = false
 		blob.updateCurrentlyOnWall(direction)
 		
+		blob.lastPos = blob.position
+		
 	
 	
 	print("finished moving buddies")
@@ -51,6 +53,19 @@ func moveBlobs(direction):
 		
 		if !somethingMoved:
 			break
+	
+	var longestLength = 0
+	var blobSpeed = 50 #tiles per second
+	
+	for blob in blobs:
+		var blobTween = get_tree().create_tween()
+		
+		var duration = (blob.lastPos.distance_to(blob.position) / STEPSIZE / blobSpeed)
+		longestLength = max(longestLength,duration)
+		blobTween.tween_property(blob,"position",blob.position,duration).from(blob.lastPos)
+		
+	
+	await get_tree().create_timer(longestLength).timeout
 	
 	
 	running = false
