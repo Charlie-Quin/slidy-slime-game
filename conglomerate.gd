@@ -30,18 +30,51 @@ func _process(delta):
 
 func moveBlobs(direction):
 	
+	var compress = true
+	
+	for blob in blobs:
+		
+		blob.scale = Vector2.ONE
+		blob.fixed = false
+		blob.updateCurrentlyOnWall(direction)
+		
+		if blob.currentlyTouchingWall:
+			compress = false
+		
+	
+	
+	
 	#compress
+	while compress:
+		var shouldBreak = false
+		
+		for blob in blobs:
+			blob = blob as blobClass
+			await blob.tryMove(direction)
+			if blob.currentlyTouchingWall:
+				shouldBreak = true
+				blob.fixed = true
+		
+		if shouldBreak:
+			break
+		
+	
+	print("finished moving buddies")
+	
 	while true:
 		var somethingMoved = false
 		
 		for blob in blobs:
-			blob.scale = Vector2.ONE
-			if await blob.tryMove(direction):
+			
+			if await blob.tryMoveMeAndMyBuddies(direction):
 				somethingMoved = true
+			
+		
 		if !somethingMoved:
 			break
-		
 	
+	running = false
+	return
 	#decompress
 	while true:
 		var somethingMoved = false
