@@ -9,6 +9,9 @@ const DEBUG = false
 const DEBUGTIME = 0.05
 var parentConglomerate
 
+var stepsDelayBeforeMovement = 0
+var stepsThisMove = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	lastPos = position
@@ -24,8 +27,12 @@ func _process(delta):
 var lastPos = Vector2.ZERO
 var currentlyTouchingWall = false
 var currentlyTouchingBlob = false
+
+var otherBlobInFront = null
+
 var blobInFront = null
 var blobBehind = null
+
 
 func updateCurrentlyOnWall(direction):
 	
@@ -34,6 +41,16 @@ func updateCurrentlyOnWall(direction):
 	raycast.target_position = direction * STEPSIZE 
 	raycast.force_raycast_update()
 	currentlyTouchingWall = raycast.is_colliding()
+	
+	blobInFront = getBlobInPosition(position + direction * STEPSIZE)
+	blobBehind = getBlobInPosition(position + direction * -STEPSIZE)
+	
+	raycast = $blobcast as RayCast2D
+	raycast.global_position = global_position
+	raycast.target_position = direction * STEPSIZE 
+	raycast.force_raycast_update()
+	currentlyTouchingBlob = raycast.is_colliding()
+	otherBlobInFront = raycast.get_collider()
 	
 	blobInFront = getBlobInPosition(position + direction * STEPSIZE)
 	blobBehind = getBlobInPosition(position + direction * -STEPSIZE)
@@ -53,6 +70,13 @@ func tryMoveMeAndMyBuddies(direction):
 		buddies.append(currentBlob.blobInFront)
 		currentBlob = currentBlob.blobInFront
 		currentBlob.updateCurrentlyOnWall(direction)
+	
+	#if currentBlob.currentlyTouchingBlob and currentBlob.otherBlobInFront != null and currentBlob.otherBlobInFront.parentConglomerate != parentConglomerate:
+		#currentBlob.otherBlobInFront.changeAlliegience(parentConglomerate)
+		#currentBlob.otherBlobInFront.stepsDelayBeforeMovement = stepsThisMove
+		#return false
+		
+	
 	currentBlob = self
 	while currentBlob.blobBehind != null:
 		buddies.append(currentBlob.blobBehind)
@@ -61,6 +85,8 @@ func tryMoveMeAndMyBuddies(direction):
 	
 	print(buddies.size())
 	
+	
+	pass
 	
 	
 	var cannotMove = false
@@ -107,7 +133,7 @@ func tryMoveMeAndMyBuddies(direction):
 		
 		if leftSomethingAlone:
 			for buddy in buddies:
-				buddy.move(-direction)
+				buddy.move(direction,true)
 			return false
 		
 		
@@ -152,13 +178,26 @@ func getAllBlobsConnectedToSelf():
 	pass
 
 #this function can't fix the blobs
-func move(direction):
+func move(direction,backwards = false):
+	
+	var newDirection = -direction if backwards else direction
+	
+	if backwards:
+		stepsThisMove -= 1
+	else:
+		stepsThisMove += 1
 	
 	position += direction * STEPSIZE
 	
 	pass
 
-
+func changeAlliegience(newParentConglomerate : Node2D):
+	parentConglomerate.remove_child(self)
+	newParentConglomerate.add_child(self)
+	
+	newParentConglomerate.setBlobs()
+	
+	pass
 
 
 func getAdjacentBlobs():

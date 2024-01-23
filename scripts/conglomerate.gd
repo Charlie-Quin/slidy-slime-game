@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var playerControlled = false
+
 const STEPSIZE = 32
 var blobs = []
 
@@ -9,6 +11,9 @@ var running = false
 func _process(delta):
 	
 	setBlobs()
+	
+	if !playerControlled:
+		return
 	
 	var dir = Vector2.ZERO
 	
@@ -62,7 +67,7 @@ func moveBlobs(direction):
 		
 		var duration = (blob.lastPos.distance_to(blob.position) / STEPSIZE / blobSpeed)
 		longestLength = max(longestLength,duration)
-		blobTween.tween_property(blob,"position",blob.position,duration).from(blob.lastPos)
+		blobTween.tween_property(blob,"position",blob.position,duration).from(blob.lastPos).set_delay(blob.stepsDelayBeforeMovement/blobSpeed)
 		
 	
 	await get_tree().create_timer(longestLength).timeout
@@ -79,7 +84,9 @@ func setBlobs():
 	for child in get_children():
 		blobs.append(child)
 		child.parentConglomerate = self
-	
+		child.stepsDelayBeforeMovement = 0
+		child.stepsThisMove = 0
+		
 	
 	
 	

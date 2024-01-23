@@ -11,12 +11,16 @@ config_version=5
 [application]
 
 config/name="slidy slime game"
-run/main_scene="res://world.tscn"
+run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://sprites/icon.svg"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="viewport"
 
 [dotnet]
