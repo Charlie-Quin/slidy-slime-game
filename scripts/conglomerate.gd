@@ -1,20 +1,61 @@
+@tool
+
 extends Node2D
 
-@export var playerControlled = false
+enum types {BLUE_PLAYABLE , PINK_CLOCKWISE_CIRCLE, PURPLE_COUNTERCLOCKWISE_CIRCLE, GREEN_SNAKEY, ORANGE_UPDOWN, RED_RIGHTLEFT, GREY_NULL}
+@export var options : types
 
-const STEPSIZE = 32
+var _colorNum = 0
+
+const STEPSIZE = 128
 var blobs = []
 
 var running = false
 
+var isPlayable = false
+
+func _ready():
+	
+	setBlobColors()
+	
+	match options:
+		
+		types.BLUE_PLAYABLE:
+			isPlayable = true
+		
+		_:
+			isPlayable = false
+		
+	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	setBlobs()
 	
-	if !playerControlled:
+	
+	if Engine.is_editor_hint():
+		setBlobColors()
 		return
 	
+	setBlobs()
+	primeBlobsForMove()
+	
+	match options:
+		
+		types.BLUE_PLAYABLE:
+			playerControl()
+		
+		
+		#otherwise it is a grey conglomerate
+		_:
+			pass
+		
+	
+	
+
+
+
+func playerControl():
 	var dir = Vector2.ZERO
 	
 	if Input.is_action_just_pressed("down"):
@@ -45,7 +86,6 @@ func moveBlobs(direction):
 		
 	
 	
-	print("finished moving buddies")
 	
 	while true:
 		var somethingMoved = false
@@ -60,14 +100,21 @@ func moveBlobs(direction):
 			break
 	
 	var longestLength = 0
-	var blobSpeed = 50 #tiles per second
+	var blobSpeed = 50.0 #tiles per second
 	
 	for blob in blobs:
 		var blobTween = get_tree().create_tween()
 		
 		var duration = (blob.lastPos.distance_to(blob.position) / STEPSIZE / blobSpeed)
-		longestLength = max(longestLength,duration)
-		blobTween.tween_property(blob,"position",blob.position,duration).from(blob.lastPos).set_delay(blob.stepsDelayBeforeMovement/blobSpeed)
+		var delay = blob.stepsDelayBeforeMovement/blobSpeed
+		longestLength = max(longestLength,duration + delay)
+		
+		var newPosition = blob.position
+		blob.position = blob.lastPos
+		
+		if blob.new:
+			blobTween.tween_callback( blob.setColor.bind(options)).set_delay(delay)
+		blobTween.tween_property(blob,"position",newPosition,duration)
 		
 	
 	await get_tree().create_timer(longestLength).timeout
@@ -83,10 +130,26 @@ func setBlobs():
 	
 	for child in get_children():
 		blobs.append(child)
-		child.parentConglomerate = self
-		child.stepsDelayBeforeMovement = 0
-		child.stepsThisMove = 0
+		
+		
+
+func setBlobColors():
+	setBlobs()
+	for blob in blobs:
+		blob.setColor(options)
+		
+
+func primeBlobsForMove():
+	
+	for blob in blobs:
+		primeBlobForMove(blob)
 		
 	
-	
+
+func primeBlobForMove(blob):
+	blob.parentConglomerate = self
+	blob.stepsDelayBeforeMovement = 0
+	blob.stepsThisMove = 0
+	blob.new = false
+	#blob.setColor(myColorNum)
 	

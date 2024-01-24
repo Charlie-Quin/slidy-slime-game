@@ -29,44 +29,31 @@ layer_0/tile_data = PackedInt32Array(589827, 1, 0, 589828, 1, 0, 589838, 1, 0, 5
 [node name="conglomerate2" parent="." instance=ExtResource("3_4j0j8")]
 position = Vector2(224, 96)
 
+[node name="blob3" parent="conglomerate2" instance=ExtResource("1_63ej6")]
+position = Vector2(352, 96)
+
+[node name="blob2" parent="conglomerate2" instance=ExtResource("1_63ej6")]
+position = Vector2(128, 64)
+
+[node name="blob8" parent="conglomerate2" instance=ExtResource("1_63ej6")]
+position = Vector2(-96, 64)
+
 [node name="blob" parent="conglomerate2" instance=ExtResource("1_63ej6")]
-position = Vector2(384, -32)
+
+[node name="blob4" parent="conglomerate2" instance=ExtResource("1_63ej6")]
+position = Vector2(0, 64)
+
+[node name="blob5" parent="conglomerate2" instance=ExtResource("1_63ej6")]
+position = Vector2(512, 0)
+
+[node name="blob6" parent="conglomerate2" instance=ExtResource("1_63ej6")]
+position = Vector2(96, 64)
+
+[node name="blob7" parent="conglomerate2" instance=ExtResource("1_63ej6")]
+position = Vector2(384, 96)
 
 [node name="conglomerate" parent="." instance=ExtResource("3_4j0j8")]
 position = Vector2(224, 96)
-playerControlled = true
 
 [node name="blob" parent="conglomerate" instance=ExtResource("1_63ej6")]
-
-[node name="blob2" parent="conglomerate" instance=ExtResource("1_63ej6")]
-position = Vector2(32, 0)
-
-[node name="blob3" parent="conglomerate" instance=ExtResource("1_63ej6")]
-position = Vector2(64, 0)
-
-[node name="blob4" parent="conglomerate" instance=ExtResource("1_63ej6")]
-position = Vector2(0, 32)
-
-[node name="blob5" parent="conglomerate" instance=ExtResource("1_63ej6")]
-position = Vector2(32, 32)
-
-[node name="blob6" parent="conglomerate" instance=ExtResource("1_63ej6")]
-position = Vector2(64, 32)
-
-[node name="blob7" parent="conglomerate" instance=ExtResource("1_63ej6")]
-position = Vector2(288, 128)
-
-[node name="blob8" parent="conglomerate" instance=ExtResource("1_63ej6")]
-position = Vector2(320, 128)
-
-[node name="blob9" parent="conglomerate" instance=ExtResource("1_63ej6")]
-position = Vector2(576, 32)
-
-[node name="blob10" parent="conglomerate" instance=ExtResource("1_63ej6")]
-position = Vector2(288, 160)
-
-[node name="blob11" parent="conglomerate" instance=ExtResource("1_63ej6")]
-position = Vector2(320, 160)
-
-[node name="blob12" parent="conglomerate" instance=ExtResource("1_63ej6")]
-position = Vector2(352, 160)
+position = Vector2(-128, 192)

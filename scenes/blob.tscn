@@ -1,38 +1,92 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxy4fy5iij8xt"]
+[gd_scene load_steps=14 format=3 uid="uid://bxy4fy5iij8xt"]
 
 [ext_resource type="Script" path="res://scripts/blob.gd" id="1_g6tdr"]
 [ext_resource type="Texture2D" uid="uid://dcpio614fcnr6" path="res://sprites/blue ball.png" id="2_oys07"]
-[ext_resource type="Texture2D" uid="uid://c2qmfg81jucid" path="res://sprites/green ball.png" id="3_hqjvo"]
-[ext_resource type="Texture2D" uid="uid://b6ulbnqcxq3rv" path="res://sprites/orange ball.png" id="4_oo70x"]
 [ext_resource type="Texture2D" uid="uid://bt1q36wrqioxs" path="res://sprites/pink ball.png" id="5_gbqox"]
+[ext_resource type="Texture2D" uid="uid://c2qmfg81jucid" path="res://sprites/green ball.png" id="5_xabk7"]
+[ext_resource type="Texture2D" uid="uid://b6ulbnqcxq3rv" path="res://sprites/orange ball.png" id="6_jq1to"]
 [ext_resource type="Texture2D" uid="uid://c504aqe68rlx6" path="res://sprites/purple ball.png" id="6_y764l"]
-[ext_resource type="Texture2D" uid="uid://dstvu4ec4dj0v" path="res://sprites/red ball.png" id="7_igos3"]
+[ext_resource type="Texture2D" uid="uid://dstvu4ec4dj0v" path="res://sprites/red ball.png" id="7_uewgj"]
+[ext_resource type="Texture2D" uid="uid://b02ntsxhv2w7l" path="res://sprites/grey.png" id="8_smt02"]
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_s51fi"]
-frames = 6
-frame_0/texture = ExtResource("2_oys07")
-frame_1/texture = ExtResource("3_hqjvo")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("4_oo70x")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("5_gbqox")
-frame_3/duration = 1.0
-frame_4/texture = ExtResource("6_y764l")
-frame_4/duration = 1.0
-frame_5/texture = ExtResource("7_igos3")
-frame_5/duration = 1.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_81u5y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oys07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gbqox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y764l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xabk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jq1to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uewgj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_smt02")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sh63j"]
-radius = 16.0
+radius = 64.0
+
+[sub_resource type="Animation" id="Animation_jitia"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33, 0.66),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.064, 0.064), Vector2(0.069, 0.058), Vector2(0.058, 0.069)]
+}
+
+[sub_resource type="Animation" id="Animation_ejag3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.064, 0.064)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5rji"]
+_data = {
+"RESET": SubResource("Animation_ejag3"),
+"idle": SubResource("Animation_jitia")
+}
 
 [node name="blob" type="StaticBody2D"]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_g6tdr")
 
-[node name="Blob" type="Sprite2D" parent="."]
-scale = Vector2(0.016, 0.016)
-texture = SubResource("AnimatedTexture_s51fi")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.064, 0.064)
+sprite_frames = SubResource("SpriteFrames_81u5y")
 
 [node name="wallcast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 32)
@@ -44,3 +98,8 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sh63j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f5rji")
+}

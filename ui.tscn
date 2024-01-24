@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cyq4ti20oy01y"]
+
+[node name="ui" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 544)
+
+[node name="frame" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="frame"]
+offset_left = -64.0
+offset_top = -64.0
+offset_bottom = 1152.0
+
+[node name="ColorRect2" type="ColorRect" parent="frame"]
+offset_left = 1920.0
+offset_top = -64.0
+offset_right = 1984.0
+offset_bottom = 1152.0
+
+[node name="ColorRect3" type="ColorRect" parent="frame"]
+offset_top = -64.0
+offset_right = 1920.0
+
+[node name="ColorRect4" type="ColorRect" parent="frame"]
+offset_top = 1088.0
+offset_right = 1920.0
+offset_bottom = 1152.0

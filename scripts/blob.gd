@@ -1,19 +1,30 @@
+@tool
+
 extends StaticBody2D
 
 class_name blobClass
 
 var fixed = false
 
-const STEPSIZE = 32
+const STEPSIZE = 128
 const DEBUG = false
 const DEBUGTIME = 0.05
 var parentConglomerate
 
 var stepsDelayBeforeMovement = 0
 var stepsThisMove = 0
+var new = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	if Engine.is_editor_hint():
+		return
+	
+	$AnimationPlayer.play("idle",0,randf_range(0.3,0.45))
+	$AnimationPlayer.advance(randf())
+	
 	lastPos = position
 	
 	pass # Replace with function body.
@@ -21,6 +32,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	if Engine.is_editor_hint():
+		return
+	
 	pass
 	
 
@@ -60,10 +75,8 @@ func updateCurrentlyOnWall(direction):
 func tryMoveMeAndMyBuddies(direction):
 	
 	var buddies = [self]
-	
 	var currentBlob = self
 	
-	currentBlob.updateCurrentlyOnWall(direction)
 	
 	currentBlob.updateCurrentlyOnWall(direction)
 	while currentBlob.blobInFront != null:
@@ -71,10 +84,17 @@ func tryMoveMeAndMyBuddies(direction):
 		currentBlob = currentBlob.blobInFront
 		currentBlob.updateCurrentlyOnWall(direction)
 	
-	#if currentBlob.currentlyTouchingBlob and currentBlob.otherBlobInFront != null and currentBlob.otherBlobInFront.parentConglomerate != parentConglomerate:
-		#currentBlob.otherBlobInFront.changeAlliegience(parentConglomerate)
-		#currentBlob.otherBlobInFront.stepsDelayBeforeMovement = stepsThisMove
-		#return false
+	if currentBlob.currentlyTouchingBlob and currentBlob.otherBlobInFront != null and currentBlob.otherBlobInFront.parentConglomerate != parentConglomerate:
+		
+		parentConglomerate.primeBlobForMove(currentBlob.otherBlobInFront)
+		
+		currentBlob.otherBlobInFront.changeAlliegience(parentConglomerate)
+		currentBlob.otherBlobInFront.stepsDelayBeforeMovement = stepsThisMove
+		#steps this move is only used for calculating tween durations
+		currentBlob.otherBlobInFront.stepsThisMove = stepsThisMove
+		currentBlob.otherBlobInFront.new = true
+		#print(stepsThisMove)
+		return false
 		
 	
 	currentBlob = self
@@ -83,10 +103,6 @@ func tryMoveMeAndMyBuddies(direction):
 		currentBlob = currentBlob.blobBehind
 		currentBlob.updateCurrentlyOnWall(direction)
 	
-	print(buddies.size())
-	
-	
-	pass
 	
 	
 	var cannotMove = false
@@ -187,13 +203,12 @@ func move(direction,backwards = false):
 	else:
 		stepsThisMove += 1
 	
-	position += direction * STEPSIZE
+	position += newDirection * STEPSIZE
 	
 	pass
 
 func changeAlliegience(newParentConglomerate : Node2D):
-	parentConglomerate.remove_child(self)
-	newParentConglomerate.add_child(self)
+	reparent(newParentConglomerate,true)
 	
 	newParentConglomerate.setBlobs()
 	
@@ -229,3 +244,9 @@ func getBlobInPosition(position):
 	
 	return null
 	
+
+func setColor(num):
+	
+	$AnimatedSprite2D.set_frame(num)
+	
+	pass

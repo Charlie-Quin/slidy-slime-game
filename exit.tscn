@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgx3wk2g6w3ay"]
+
+[ext_resource type="Script" path="res://exit.gd" id="1_v6kun"]
+[ext_resource type="Texture2D" uid="uid://dutdn4f8ygsr" path="res://sprites/424321-200.png" id="2_i2ehx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_212xs"]
+size = Vector2(12544, 18176)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b2owy"]
+normal = Vector2(-1, 0)
+distance = -4000.0
+
+[node name="exit" type="Node2D"]
+script = ExtResource("1_v6kun")
+
+[node name="424321-200" type="Sprite2D" parent="."]
+texture = ExtResource("2_i2ehx")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4480, 0)
+shape = SubResource("RectangleShape2D_212xs")
+
+[node name="end wall" type="StaticBody2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end wall"]
+shape = SubResource("WorldBoundaryShape2D_b2owy")
