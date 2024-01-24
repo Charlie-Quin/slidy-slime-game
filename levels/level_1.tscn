@@ -127,6 +127,9 @@ position = Vector2(1152, 512)
 [node name="RED_RIGHTLEFT" parent="congomerates" instance=ExtResource("4_7syve")]
 options = 5
 
+[node name="blob3" parent="congomerates/RED_RIGHTLEFT" instance=ExtResource("5_pvqjl")]
+position = Vector2(768, 768)
+
 [node name="GREY_NULL" parent="congomerates" instance=ExtResource("4_7syve")]
 options = 6
 
@@ -140,3 +143,6 @@ position = Vector2(1792, 384)
 nextScene = ExtResource("7_m3b4n")
 
 [node name="ui" parent="." instance=ExtResource("1_l6y3x")]
+levelTitle = "Level 1"
+levelSubText = "This is the first level."
+zoom = 1.014

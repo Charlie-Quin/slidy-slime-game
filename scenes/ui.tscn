@@ -1,6 +1,70 @@
-[gd_scene format=3 uid="uid://cyq4ti20oy01y"]
+[gd_scene load_steps=5 format=3 uid="uid://cyq4ti20oy01y"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_1bs6y"]
+
+[sub_resource type="Animation" id="Animation_bq4gm"]
+resource_name = "levelStart"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("screenRect/screenFadeRect:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.5, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -500)]
+}
+
+[sub_resource type="Animation" id="Animation_n1i5u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("screenRect/screenFadeRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q35yt"]
+_data = {
+"RESET": SubResource("Animation_n1i5u"),
+"levelStart": SubResource("Animation_bq4gm")
+}
 
 [node name="ui" type="Node2D"]
+script = ExtResource("1_1bs6y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 544)
@@ -12,21 +76,72 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="frame"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = -64.0
 offset_bottom = 1152.0
 
 [node name="ColorRect2" type="ColorRect" parent="frame"]
+layout_mode = 0
 offset_left = 1920.0
 offset_top = -64.0
 offset_right = 1984.0
 offset_bottom = 1152.0
 
 [node name="ColorRect3" type="ColorRect" parent="frame"]
+layout_mode = 0
 offset_top = -64.0
 offset_right = 1920.0
 
 [node name="ColorRect4" type="ColorRect" parent="frame"]
+layout_mode = 0
 offset_top = 1088.0
 offset_right = 1920.0
 offset_bottom = 1152.0
+
+[node name="title" type="Node2D" parent="."]
+z_index = 20
+
+[node name="LevelTitle" type="Label" parent="title"]
+offset_left = -357.0
+offset_top = 7.0
+offset_right = 2289.0
+offset_bottom = 280.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 200
+text = "Level"
+horizontal_alignment = 1
+
+[node name="subTitle" type="Label" parent="title"]
+offset_left = 160.0
+offset_top = 260.0
+offset_right = 1779.0
+offset_bottom = 568.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 60
+text = "sub text"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q35yt")
+}
+
+[node name="screenRect" type="Node2D" parent="."]
+z_index = 100
+
+[node name="screenFadeRect" type="ColorRect" parent="screenRect"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1237.0
+offset_top = -781.0
+offset_right = 3268.0
+offset_bottom = 2061.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.105882, 0.913725, 1)

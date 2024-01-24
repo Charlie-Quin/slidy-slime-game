@@ -2,6 +2,8 @@
 
 extends Node2D
 
+signal finishedMoving
+
 enum types {BLUE_PLAYABLE , PINK_CLOCKWISE_CIRCLE, PURPLE_COUNTERCLOCKWISE_CIRCLE, GREEN_SNAKEY, ORANGE_UPDOWN, RED_RIGHTLEFT, GREY_NULL}
 @export var options : types
 
@@ -9,6 +11,9 @@ var _colorNum = 0
 
 const STEPSIZE = 128
 var blobs = []
+
+enum dir {UP,DOWN,RIGHT,LEFT}
+var movementPattern = []
 
 var running = false
 
@@ -23,10 +28,50 @@ func _ready():
 		types.BLUE_PLAYABLE:
 			isPlayable = true
 		
+		types.PINK_CLOCKWISE_CIRCLE:
+			movementPattern = [dir.UP,dir.RIGHT,dir.DOWN,dir.LEFT]
+		
+		types.PURPLE_COUNTERCLOCKWISE_CIRCLE:
+			movementPattern = [dir.DOWN,dir.RIGHT,dir.UP,dir.LEFT]
+		
+		types.GREEN_SNAKEY:
+			movementPattern = [dir.RIGHT,dir.UP,dir.RIGHT,dir.DOWN,dir.LEFT,dir.UP,dir.LEFT,dir.DOWN]
+		
+		types.ORANGE_UPDOWN:
+			movementPattern = [dir.UP,dir.DOWN]
+		
+		types.RED_RIGHTLEFT:
+			movementPattern = [dir.LEFT,dir.RIGHT]
+		
 		_:
 			isPlayable = false
 		
 	
+
+func move():
+	
+	setBlobs()
+	
+	if movementPattern.size() == 0:
+		return
+	
+	var direction = movementPattern.pop_front()
+	movementPattern.append(direction)
+	
+	match direction:
+		dir.LEFT:
+			direction = Vector2.LEFT
+		dir.RIGHT:
+			direction = Vector2.RIGHT
+		dir.UP:
+			direction = Vector2.UP
+		dir.DOWN:
+			direction = Vector2.DOWN
+		_:
+			print(direction)
+	
+	await moveBlobs(direction)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -77,10 +122,21 @@ func playerControl():
 	
 	pass
 
+
+
 func persistUpdate():
 	setBlobColors()
+	
+	if movementPattern.size() > 0:
+		movementPattern.push_front(movementPattern.back())
+		movementPattern.pop_back()
+	
+	
 
 func moveBlobs(direction):
+	
+	if blobs.size() == 0:
+		return
 	
 	for blob in blobs:
 		
@@ -118,6 +174,9 @@ func moveBlobs(direction):
 		var newPosition = blob.position
 		blob.position = blob.lastPos
 		
+		#this line is so that tween from other conglomerates will work
+		blob.lastPos = newPosition
+		
 		if blob.new:
 			blobTween.tween_callback( blob.setColor.bind(options)).set_delay(delay)
 		blobTween.tween_property(blob,"position",newPosition,duration)
@@ -125,7 +184,23 @@ func moveBlobs(direction):
 	
 	await get_tree().create_timer(longestLength).timeout
 	
+	if isPlayable:
+		#print("------------------------")
+		for conglomerate in get_tree().get_nodes_in_group("conglomerate"):
+			if conglomerate == self:
+				continue
+			
+			conglomerate.setBlobs()
+			if conglomerate.blobs.size() == 0:
+				continue
+			
+			#print(conglomerate.blobs.size())
+			
+			await get_tree().create_timer(0.1).timeout
+			await conglomerate.move()
+		
 	
+	emit_signal("finishedMoving")
 	running = false
 	return
 	

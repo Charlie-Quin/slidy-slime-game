@@ -93,6 +93,9 @@ func tryMoveMeAndMyBuddies(direction):
 		#steps this move is only used for calculating tween durations
 		currentBlob.otherBlobInFront.stepsThisMove = stepsThisMove
 		currentBlob.otherBlobInFront.new = true
+		
+		currentBlob.otherBlobInFront.fixed = false
+		
 		#print(stepsThisMove)
 		return false
 		
@@ -208,7 +211,10 @@ func move(direction,backwards = false):
 	pass
 
 func changeAlliegience(newParentConglomerate : Node2D):
-	reparent(newParentConglomerate,true)
+	#reparent(newParentConglomerate,true)
+	parentConglomerate.blobs.erase(self)
+	get_parent().remove_child(self)
+	newParentConglomerate.add_child(self)
 	
 	newParentConglomerate.setBlobs()
 	
