@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://beij75jd8prax"]
 
-[ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://ui.tscn" id="1_l6y3x"]
+[ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://scenes/ui.tscn" id="1_l6y3x"]
 [ext_resource type="Texture2D" uid="uid://djrck0wdxi8a1" path="res://sprites/images.jpg" id="1_q2m7o"]
 [ext_resource type="Shader" path="res://removeWhite.gdshader" id="1_xi8k3"]
 [ext_resource type="Texture2D" uid="uid://bpdjk0tc3s4bo" path="res://sprites/360_F_107230552_m7MfbMIBGxW8UAHckjPjbc0QnvOed55F.jpg" id="2_s06j3"]
 [ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="4_7syve"]
 [ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="5_pvqjl"]
-[ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://exit.tscn" id="6_oeqgp"]
+[ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="6_oeqgp"]
 [ext_resource type="PackedScene" uid="uid://ce6cpx18teet2" path="res://scenes/world.tscn" id="7_m3b4n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byfqg"]
@@ -97,7 +97,6 @@ texture = ExtResource("1_q2m7o")
 [node name="congomerates" type="Node2D" parent="."]
 
 [node name="BLUE_PLAYABLE" parent="congomerates" instance=ExtResource("4_7syve")]
-options = 0
 
 [node name="blob" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("5_pvqjl")]
 position = Vector2(256, 384)
