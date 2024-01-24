@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scripts/conglomerate.gd" id="1_mp1ab"]
 
-[node name="conglomerate" type="Node2D"]
+[node name="conglomerate" type="Node2D" groups=["Persist_Update"]]
 script = ExtResource("1_mp1ab")

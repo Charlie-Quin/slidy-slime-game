@@ -250,3 +250,13 @@ func setColor(num):
 	$AnimatedSprite2D.set_frame(num)
 	
 	pass
+
+func save():
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"position" : position, 
+		"lastPos" : lastPos,
+		"parentConglomerate" : parentConglomerate
+	}
+	return save_dict

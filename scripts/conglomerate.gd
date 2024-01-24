@@ -56,6 +56,9 @@ func _process(delta):
 
 
 func playerControl():
+	
+	
+	
 	var dir = Vector2.ZERO
 	
 	if Input.is_action_just_pressed("down"):
@@ -68,11 +71,14 @@ func playerControl():
 		dir = Vector2.LEFT
 	
 	if dir != Vector2.ZERO and !running:
+		get_tree().get_first_node_in_group("TimeKeeper").save_game()
 		running = true
 		moveBlobs(dir)
 	
 	pass
 
+func persistUpdate():
+	setBlobColors()
 
 func moveBlobs(direction):
 	

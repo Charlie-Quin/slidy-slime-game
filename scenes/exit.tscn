@@ -10,7 +10,7 @@ size = Vector2(12544, 18176)
 normal = Vector2(-1, 0)
 distance = -4000.0
 
-[node name="exit" type="Node2D"]
+[node name="exit" type="Node2D" groups=["Persist_Update"]]
 script = ExtResource("1_v6kun")
 
 [node name="424321-200" type="Sprite2D" parent="."]
@@ -21,6 +21,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(-4480, 0)
 shape = SubResource("RectangleShape2D_212xs")
 
@@ -29,4 +30,5 @@ collision_layer = 5
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="end wall"]
+visible = false
 shape = SubResource("WorldBoundaryShape2D_b2owy")
