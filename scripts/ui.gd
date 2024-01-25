@@ -34,3 +34,16 @@ func _process(delta):
 	$frame.scale = Vector2.ONE * (1.0/zoom)
 	
 	pass
+
+func changeScene(newScene):
+	
+	get_tree().get_first_node_in_group("TimeKeeper").ignoreInput = true
+	
+	$AnimationPlayer.play("changeScene")
+	
+	await $AnimationPlayer.animation_finished
+	
+	print("tree",get_tree())
+	
+	get_tree().change_scene_to_packed(newScene)
+	

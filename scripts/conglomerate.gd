@@ -48,6 +48,13 @@ func _ready():
 		
 	
 
+func circleMovement():
+	if movementPattern.size() == 0:
+		return
+	
+	var direction = movementPattern.pop_front()
+	movementPattern.append(direction)
+
 func move():
 	
 	setBlobs()
@@ -68,7 +75,7 @@ func move():
 		dir.DOWN:
 			direction = Vector2.DOWN
 		_:
-			print(direction)
+			print("direction in match",direction)
 	
 	await moveBlobs(direction)
 	pass
@@ -102,7 +109,9 @@ func _process(delta):
 
 func playerControl():
 	
-	
+	if blobs.size() == 0:
+		
+		return
 	
 	var dir = Vector2.ZERO
 	
@@ -133,7 +142,11 @@ func persistUpdate():
 	
 	
 
+var longestLength = 0
 func moveBlobs(direction):
+	
+	#moved up here so that blobs can change it if they need to
+	longestLength = 0
 	
 	if blobs.size() == 0:
 		return
@@ -161,7 +174,7 @@ func moveBlobs(direction):
 		if !somethingMoved:
 			break
 	
-	var longestLength = 0
+	
 	var blobSpeed = 50.0 #tiles per second
 	
 	for blob in blobs:
@@ -192,6 +205,7 @@ func moveBlobs(direction):
 			
 			conglomerate.setBlobs()
 			if conglomerate.blobs.size() == 0:
+				conglomerate.circleMovement()
 				continue
 			
 			#print(conglomerate.blobs.size())
@@ -199,6 +213,9 @@ func moveBlobs(direction):
 			await get_tree().create_timer(0.1).timeout
 			await conglomerate.move()
 		
+	
+	#await get_tree().create_timer(0.1).timeout
+	
 	
 	emit_signal("finishedMoving")
 	running = false

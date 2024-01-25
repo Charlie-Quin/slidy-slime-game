@@ -15,6 +15,8 @@ var stepsDelayBeforeMovement = 0
 var stepsThisMove = 0
 var new = false
 
+var alive = true
+var dying = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -70,6 +72,53 @@ func updateCurrentlyOnWall(direction):
 	blobInFront = getBlobInPosition(position + direction * STEPSIZE)
 	blobBehind = getBlobInPosition(position + direction * -STEPSIZE)
 	
+
+func checkIfShouldDie():
+	
+	var raycast = $hazardCast as RayCast2D
+	raycast.force_raycast_update()
+	
+	if raycast.is_colliding():
+		
+		
+		
+		var blobTween = get_tree().create_tween()
+		var blobSpeed = 50.0
+		
+		var duration = (lastPos.distance_to(position) / STEPSIZE / blobSpeed)
+		var delay = stepsDelayBeforeMovement/blobSpeed
+		var popTime = 0.3
+		
+		parentConglomerate.longestLength = max(parentConglomerate.longestLength,duration + delay + popTime)
+		
+		var newPosition = position
+		position = lastPos
+		
+		#this line is so that tween from other conglomerates will work
+		lastPos = newPosition
+		
+		if new:
+			blobTween.tween_callback( setColor.bind(parentConglomerate.options)).set_delay(delay)
+		blobTween.tween_property(self,"position",newPosition,duration)
+		
+		
+		blobTween.tween_property(self,"modulate",Color(1,1,1,0),popTime)
+		blobTween.set_parallel(true).tween_property(self,"scale",Vector2.ONE * 3.0,popTime)
+		blobTween.set_parallel(false).tween_property(self,"dying",false,0)
+		
+		var newParent = get_parent().get_parent()
+		
+		get_parent().remove_child(self)
+		parentConglomerate.setBlobs()
+		
+		newParent.add_child(self)
+		
+		alive = false
+		var dying = true
+		
+	
+	
+	pass
 
 #this function can fix blobs.
 func tryMoveMeAndMyBuddies(direction):
@@ -156,6 +205,9 @@ func tryMoveMeAndMyBuddies(direction):
 			return false
 		
 		
+	
+	for buddy in buddies:
+		buddy.checkIfShouldDie()
 	
 	return true
 	
@@ -251,6 +303,8 @@ func getBlobInPosition(position):
 	return null
 	
 
+
+
 func setColor(num):
 	
 	$AnimatedSprite2D.set_frame(num)
@@ -263,6 +317,8 @@ func save():
 		"parent" : get_parent().get_path(),
 		"position" : position, 
 		"lastPos" : lastPos,
-		"parentConglomerate" : parentConglomerate
+		"parentConglomerate" : parentConglomerate,
+		"modulate" : modulate,
+		"alive" : alive
 	}
 	return save_dict

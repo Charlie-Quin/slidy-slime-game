@@ -2,38 +2,54 @@ extends Node2D
 
 @export var nextScene : PackedScene
 
+var normal = Vector2.ZERO
+var planePos = Vector2.ZERO
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	wait = 6
+	
+	normal = Vector2.LEFT.rotated(rotation)
+	planePos = position + (normal * -128)
+	
+	wait = 7
 	pass # Replace with function body.
 
-var wait = 0
+var wait = 6
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
 	var shouldExit = true
+	var canExit = false
 	
-	for body in $Area2D.get_overlapping_bodies():
-		if body.parentConglomerate.isPlayable:
+	for body in get_tree().get_nodes_in_group("blob"):
+		
+		if body.parentConglomerate.running or body.dying:
+			shouldExit = false
+			canExit = false
+		
+		if normal.dot(body.position - planePos) < 0:
+			if body.parentConglomerate.isPlayable:
+				canExit = true
+			continue
+		
+		if body.parentConglomerate.isPlayable and body.alive:
 			shouldExit = false
 			break
 		
 	
+	#print("unaltered",shouldExit)
+	
 	if wait > 0:
 		
 		wait -= 1
-		
-		if wait == 4:
-			$Area2D/CollisionShape2D.disabled = true
-		if wait == 2:
-			$Area2D/CollisionShape2D.disabled = false
-		
 		shouldExit = false
 		
 	
+	#print(shouldExit)
 	
-	if shouldExit:
+	#return
+	if shouldExit and canExit:
 		exit()
 	
 	pass
@@ -44,8 +60,14 @@ func persistUpdate():
 	
 	pass
 
+var exited = false
+
 func exit():
 	
-	get_tree().change_scene_to_packed(nextScene)
+	if exited:
+		return
+	
+	exited = true
+	%ui.changeScene(nextScene)
 	
 

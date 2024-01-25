@@ -1,10 +1,11 @@
 extends Node
 
 var past = []
+var ignoreInput = false
 
 func _process(delta):
 	
-	if Input.is_action_just_pressed("rewind"):
+	if !ignoreInput and Input.is_action_just_pressed("rewind"):
 		load_game()
 		pass
 	
