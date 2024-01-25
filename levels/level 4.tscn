@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_ovcow"]
 [ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="7_jhbv2"]
 [ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="8_jwgxe"]
-[ext_resource type="PackedScene" uid="uid://bdyrmdyefle76" path="res://scenes/main_menu.tscn" id="9_yi3gj"]
+[ext_resource type="PackedScene" uid="uid://bdyrmdyefle76" path="res://levels/main_menu.tscn" id="9_yi3gj"]
 [ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://scenes/ui.tscn" id="10_yun3a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdq5v"]
