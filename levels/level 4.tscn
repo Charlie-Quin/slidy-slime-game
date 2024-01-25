@@ -8,8 +8,46 @@
 [ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_ovcow"]
 [ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="7_jhbv2"]
 [ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="8_jwgxe"]
-[ext_resource type="PackedScene" uid="uid://ce6cpx18teet2" path="res://scenes/world.tscn" id="9_2ml88"]
+[ext_resource type="PackedScene" uid="uid://bdyrmdyefle76" path="res://scenes/main_menu.tscn" id="9_yi3gj"]
 [ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://scenes/ui.tscn" id="10_yun3a"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdq5v"]
+texture = ExtResource("4_h7pfp")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_kn2qs"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 8
+sources/0 = SubResource("TileSetAtlasSource_cdq5v")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byfqg"]
 shader = ExtResource("2_a5ipy")
@@ -53,46 +91,15 @@ physics_layer_0/collision_layer = 5
 physics_layer_0/collision_mask = 5
 sources/1 = SubResource("TileSetAtlasSource_pob62")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdq5v"]
-texture = ExtResource("4_h7pfp")
-texture_region_size = Vector2i(128, 128)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-
-[sub_resource type="TileSet" id="TileSet_kn2qs"]
-tile_size = Vector2i(128, 128)
-physics_layer_0/collision_layer = 8
-physics_layer_0/collision_mask = 8
-sources/0 = SubResource("TileSetAtlasSource_cdq5v")
-
 [node name="level1" type="Node2D" groups=["TimeKeeper"]]
 script = ExtResource("1_8k1s1")
+
+[node name="hazardMap" type="TileMap" parent="."]
+z_index = 2
+position = Vector2(64, 64)
+tile_set = SubResource("TileSet_kn2qs")
+format = 2
+layer_0/tile_data = PackedInt32Array(393216, 0, 0, 20, 0, 0, 131095, 65536, 1, 196632, 131072, 1, 458776, 65536, 0, 524311, 0, 1, 655380, 65536, 1, 458775, 65536, 1, 393239, 131072, 1, 327689, 0, 0)
 
 [node name="rockTiles" type="TileMap" parent="."]
 z_index = 1
@@ -100,14 +107,7 @@ material = SubResource("ShaderMaterial_byfqg")
 position = Vector2(64, 64)
 tile_set = SubResource("TileSet_3kjk4")
 format = 2
-layer_0/tile_data = PackedInt32Array(14, 65537, 0, -65523, 1, 0, -65524, 131073, 1, -65525, 65537, 0, -65526, 131073, 1, -65527, 1, 2, -65528, 131073, 1, -65529, 1, 0, -65530, 65537, 0, -65531, 65537, 0, -65532, 1, 0, -65533, 65537, 1, -65534, 1, 0, -65535, 131073, 1, -65536, 131073, 0, -1, 131073, 1, 65535, 1, 0, 131071, 65537, 0, 196607, 65537, 1, 262143, 131073, 0, 327679, 131073, 0, 393215, 65537, 0, 458751, 65537, 1, 524287, 1, 2, 589823, 65537, 0, 655359, 65537, 0, 720895, 1, 1, 655360, 1, 0, -65522, 1, 0, 0, 65537, 0, 65536, 1, 1, 131072, 1, 0, 196608, 65537, 0, 327680, 1, 0, 393216, 65537, 1, 458752, 65537, 1, 524288, 131073, 0, 589824, 65537, 0, 13, 65537, 1, 12, 1, 0, 11, 65537, 1, 10, 65537, 0, 9, 1, 1, 8, 1, 2, 7, 65537, 0, 6, 65537, 1, 5, 131073, 1, 4, 1, 2, 3, 65537, 0, 2, 65537, 0, 1, 65537, 1, 262144, 1, 2, 589825, 1, 0, 655361, 65537, 0, 655362, 1, 2, 720899, 65537, 0, 720900, 65537, 0, 720901, 65537, 0, 720902, 1, 2, 720903, 65537, 1, 655367, 1, 1, 655368, 1, 0, 655369, 131073, 0, 655370, 65537, 0, 655371, 65537, 0, 655372, 131073, 1, 655373, 131073, 0, 655374, 131073, 0, 655375, 131073, 0, 655376, 65537, 1, 655377, 1, 1, 589841, 131073, 1, 524305, 1, 2, 458769, 65537, 0, 458770, 1, 2, 393234, 65537, 0, 327698, 131073, 0, 262162, 65537, 1, 196626, 65537, 1, 131090, 1, 2, 65554, 131073, 0, 18, 131073, 0, -65518, 131073, 0, -65519, 65537, 0, -65520, 65537, 1, -65521, 65537, 1, -131057, 1, 0, 65541, 65537, 0, 131077, 1, 1)
-
-[node name="hazardMap" type="TileMap" parent="."]
-z_index = 2
-position = Vector2(64, 64)
-tile_set = SubResource("TileSet_kn2qs")
-format = 2
-layer_0/tile_data = PackedInt32Array(393224, 65536, 0)
+layer_0/tile_data = PackedInt32Array(14, 65537, 0, -65523, 1, 0, -65524, 131073, 1, -65525, 65537, 0, -65526, 131073, 1, -65527, 1, 2, -65528, 131073, 1, -65529, 1, 0, -65530, 65537, 0, -65531, 65537, 0, -65532, 1, 0, -65533, 65537, 1, -65534, 1, 0, -65536, 131073, 0, -1, 131073, 1, 65535, 1, 0, 131071, 65537, 0, 196607, 65537, 1, 262143, 131073, 0, 327679, 131073, 0, 393215, 65537, 0, 458751, 65537, 1, 524287, 1, 2, 589823, 65537, 0, 655359, 65537, 0, 720895, 1, 1, 655360, 1, 0, -65522, 1, 0, 0, 65537, 0, 65536, 1, 1, 131072, 1, 0, 196608, 65537, 0, 327680, 1, 0, 524288, 131073, 0, 589824, 65537, 0, 13, 65537, 1, 12, 1, 0, 11, 65537, 1, 10, 65537, 0, 9, 1, 1, 8, 1, 2, 7, 65537, 0, 6, 65537, 1, 5, 131073, 1, 262144, 1, 2, 589825, 1, 0, 655361, 65537, 0, 655362, 1, 2, 720899, 65537, 0, 720902, 1, 2, 720903, 65537, 1, 655367, 1, 1, 655368, 1, 0, 655371, 65537, 0, 655372, 131073, 1, 655373, 131073, 0, 655374, 131073, 0, 655375, 131073, 0, 655376, 65537, 1, 655377, 1, 1, 589841, 131073, 1, 327698, 131073, 0, 131090, 1, 2, 65554, 131073, 0, 18, 131073, 0, -65518, 131073, 0, -65519, 65537, 0, -65520, 65537, 1, -65521, 65537, 1, -131057, 1, 0, 131077, 1, 1, 655369, 1, 0, 720905, 65537, 0, 720909, 65537, 1, 851978, 131073, 0, 786441, 1, 0, 917515, 1, 1, 851980, 1, 0, 786445, 1, 1, 327699, 1, 0, 262164, 1, 0, 393236, 1, 0, 65555, 1, 0, -65514, 1, 0, 22, 1, 0, 65558, 1, 0, 524310, 1, 0, 589846, 1, 0, 786436, 65537, 0, 851973, 131073, 0, 786438, 1, 1, 524289, 65537, 1, 458752, 65537, 0, 327700, 65537, 1, 327701, 1, 1, 327702, 65537, 1, 524306, 1, 2, 589842, 1, 0, 655378, 1, 0, 589843, 1, 2, 655381, 131073, 1, 21, 65537, 1, 589831, 1, 2, 589832, 131073, 1, 589833, 65537, 1, 589826, 1, 1, 589827, 1, 2, 589828, 1, 0, 589829, 65537, 1, 589830, 131073, 1, 655366, 65537, 1, 655365, 1, 1, 655364, 131073, 0, 655363, 1, 1, 720900, 1, 1, 786437, 1, 0, 720901, 1, 1, 131075, 65537, 0, 131074, 131073, 0, 524290, 1, 1, 524291, 1, 0, -131072, 1, 1, -131071, 65537, 1, -131070, 131073, 0, -65535, 1, 2, 524301, 65537, 0, 524300, 1, 1, 589836, 131073, 1, 589837, 65537, 0, 65541, 1, 1)
 
 [node name="background" type="TextureRect" parent="."]
 offset_left = -55454.0
@@ -123,10 +123,13 @@ stretch_mode = 1
 [node name="BLUE_PLAYABLE" parent="congomerates" instance=ExtResource("6_ovcow")]
 
 [node name="blob" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_jhbv2")]
-position = Vector2(256, 256)
+position = Vector2(256, 384)
 
 [node name="PINK_CLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("6_ovcow")]
 options = 1
+
+[node name="blob" parent="congomerates/PINK_CLOCKWISE_CIRCLE" instance=ExtResource("7_jhbv2")]
+position = Vector2(1536, 1792)
 
 [node name="PURPLE_COUNTERCLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("6_ovcow")]
 options = 2
@@ -149,16 +152,20 @@ position = Vector2(1152, 256)
 [node name="RED_RIGHTLEFT" parent="congomerates" instance=ExtResource("6_ovcow")]
 options = 5
 
+[node name="blob" parent="congomerates/RED_RIGHTLEFT" instance=ExtResource("7_jhbv2")]
+position = Vector2(2176, 1024)
+
 [node name="GREY_NULL" parent="congomerates" instance=ExtResource("6_ovcow")]
 options = 6
 
 [node name="objects" type="Node2D" parent="."]
 
 [node name="exit" parent="objects" instance=ExtResource("8_jwgxe")]
-position = Vector2(2816, 384)
-nextScene = ExtResource("9_2ml88")
+position = Vector2(3072, 768)
+nextScene = ExtResource("9_yi3gj")
 
 [node name="ui" parent="." instance=ExtResource("10_yun3a")]
 unique_name_in_owner = true
 levelTitle = "Level 4"
 levelSubText = "Split"
+zoom = 0.555

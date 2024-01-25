@@ -115,6 +115,7 @@ func checkIfShouldDie():
 		
 		alive = false
 		var dying = true
+		$CollisionShape2D.disabled = true
 		
 	
 	
@@ -142,7 +143,6 @@ func tryMoveMeAndMyBuddies(direction):
 		#steps this move is only used for calculating tween durations
 		currentBlob.otherBlobInFront.stepsThisMove = stepsThisMove
 		currentBlob.otherBlobInFront.new = true
-		
 		currentBlob.otherBlobInFront.fixed = false
 		
 		#print(stepsThisMove)
@@ -200,8 +200,19 @@ func tryMoveMeAndMyBuddies(direction):
 				break
 		
 		if leftSomethingAlone:
+			
+			scale = Vector2.ONE * 1.5
+			for blob in getAllBlobsConnectedToSelf():
+				if blob != self:
+					blob.scale = Vector2.ONE * 0.5
+			print("stepping back")
+			for blob in getAllBlobsConnectedToSelf():
+				blob.scale = Vector2.ONE
+			scale = Vector2.ONE 
+			
 			for buddy in buddies:
 				buddy.move(direction,true)
+			
 			return false
 		
 		
@@ -320,5 +331,6 @@ func save():
 		"parentConglomerate" : parentConglomerate,
 		"modulate" : modulate,
 		"alive" : alive
+		
 	}
 	return save_dict

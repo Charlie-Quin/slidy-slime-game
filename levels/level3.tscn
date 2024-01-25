@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_oy17v"]
 [ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="7_mqhel"]
 [ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="8_dv0ds"]
-[ext_resource type="PackedScene" uid="uid://ce6cpx18teet2" path="res://scenes/world.tscn" id="9_kn1de"]
+[ext_resource type="PackedScene" uid="uid://bks6wappbv8e8" path="res://levels/level 4.tscn" id="9_rgbu6"]
 [ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://scenes/ui.tscn" id="10_05ja5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byfqg"]
@@ -152,7 +152,7 @@ position = Vector2(1664, 1408)
 
 [node name="exit" parent="objects" instance=ExtResource("8_dv0ds")]
 position = Vector2(2432, 384)
-nextScene = ExtResource("9_kn1de")
+nextScene = ExtResource("9_rgbu6")
 
 [node name="ui" parent="." instance=ExtResource("10_05ja5")]
 unique_name_in_owner = true
