@@ -33,6 +33,8 @@ func _process(delta):
 	$title.scale = Vector2.ONE * (1.0/zoom)
 	$frame.scale = Vector2.ONE * (1.0/zoom)
 	
+	$"CanvasLayer/pause menu".scale = Vector2.ONE * (1.0/zoom)
+	
 	pass
 
 func changeScene(newScene):

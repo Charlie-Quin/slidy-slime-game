@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyq4ti20oy01y"]
+[gd_scene load_steps=7 format=3 uid="uid://cyq4ti20oy01y"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_1bs6y"]
+[ext_resource type="PackedScene" uid="uid://dit83jljqfy4v" path="res://scenes/pause_menu.tscn" id="2_u0ucx"]
 
 [sub_resource type="Animation" id="Animation_n1i5u"]
 length = 0.001
@@ -161,3 +162,10 @@ offset_bottom = 2061.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0627451, 0.105882, 0.913725, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="pause menu" parent="CanvasLayer" instance=ExtResource("2_u0ucx")]
+visible = false
+custom_minimum_size = Vector2(1920, 1080)

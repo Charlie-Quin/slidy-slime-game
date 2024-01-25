@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://TimeKeeper.gd" id="1_8j2aq"]
 [ext_resource type="Shader" path="res://removeWhite.gdshader" id="2_bhn61"]
-[ext_resource type="Texture2D" uid="uid://bpdjk0tc3s4bo" path="res://sprites/360_F_107230552_m7MfbMIBGxW8UAHckjPjbc0QnvOed55F.jpg" id="3_28y1a"]
+[ext_resource type="Texture2D" uid="uid://bdfkpk4hf7cyd" path="res://sprites/rock 2.png" id="3_aey0t"]
 [ext_resource type="Texture2D" uid="uid://br6to3h8joanq" path="res://sprites/all hazards.png" id="4_s2igt"]
 [ext_resource type="Texture2D" uid="uid://ch1m3h7hb0t8y" path="res://sprites/sandy background.png" id="5_rprg4"]
 [ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_1me3b"]
@@ -14,61 +14,44 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byfqg"]
 shader = ExtResource("2_bhn61")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hy6a0"]
-texture = ExtResource("3_28y1a")
-texture_region_size = Vector2i(135, 120)
-0:0/next_alternative_id = 3
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rctoe"]
+texture = ExtResource("3_aey0t")
+texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
-0:0/0/probability = 0.111
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-67.5, -60, 67.5, -60, 67.5, 60, -67.5, 60)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 1:0/0 = 0
-1:0/0/probability = 0.111
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-67.5, -60, 67.5, -60, 67.5, 60, -67.5, 60)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 2:0/0 = 0
-2:0/0/probability = 0.111
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-67.5, -60, 67.5, -60, 67.5, 60, -67.5, 60)
-2:1/0 = 0
-2:1/0/probability = 0.111
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-67.5, -60, 67.5, -60, 67.5, 60, -67.5, 60)
-2:2/0 = 0
-2:2/0/probability = 0.111
-2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-67.5, -60, 67.5, -60, 67.5, 60, -67.5, 60)
-1:2/0 = 0
-1:2/0/probability = 0.111
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-67.5, -60, 67.5, -60, 67.5, 60, -67.5, 60)
-1:1/0 = 0
-1:1/0/probability = 0.111
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-67.5, -60, 67.5, -60, 67.5, 60, -67.5, 60)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 0:1/0 = 0
-0:1/0/probability = 0.111
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-67.5, -60, 67.5, -60, 67.5, 60, -67.5, 60)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 0:2/0 = 0
-0:2/0/probability = 0.111
 0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-67.5, -60, 67.5, -60, 67.5, 60, -67.5, 60)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
-[sub_resource type="TileSet" id="TileSet_kkkun"]
-tile_size = Vector2i(135, 120)
+[sub_resource type="TileSet" id="TileSet_h5fiv"]
+resource_local_to_scene = true
+tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 5
 physics_layer_0/collision_mask = 5
-sources/1 = SubResource("TileSetAtlasSource_hy6a0")
+sources/1 = SubResource("TileSetAtlasSource_rctoe")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdq5v"]
 texture = ExtResource("4_s2igt")
@@ -114,11 +97,10 @@ script = ExtResource("1_8j2aq")
 [node name="rockTiles" type="TileMap" parent="."]
 z_index = 1
 material = SubResource("ShaderMaterial_byfqg")
-position = Vector2(64, 64)
-scale = Vector2(0.948, 1.067)
-tile_set = SubResource("TileSet_kkkun")
+position = Vector2(64, 68)
+tile_set = SubResource("TileSet_h5fiv")
 format = 2
-layer_0/tile_data = PackedInt32Array(14, 65537, 0, -65523, 131073, 0, -65524, 65537, 2, -65525, 65537, 0, -65526, 131073, 2, -65527, 65537, 1, -65528, 65537, 1, -65529, 1, 1, -65530, 131073, 1, -65531, 65537, 0, -65532, 1, 2, -65533, 1, 1, -65534, 65537, 2, -65535, 131073, 2, -65536, 1, 1, -1, 1, 0, 65535, 1, 2, 131071, 65537, 0, 196607, 131073, 2, 262143, 131073, 1, 327679, 1, 1, 393215, 65537, 0, 458751, 131073, 1, 524287, 131073, 2, 589823, 1, 2, 655359, 1, 1, 720895, 65537, 2, 655367, 1, 0, 655368, 1, 0, 655369, 65537, 1, 655370, 131073, 0, 655366, 65537, 0, 655365, 1, 2, 655364, 65537, 0, 655363, 1, 0, 655362, 65537, 0, 655361, 65537, 2, 655360, 1, 0, 262158, 131073, 0, 327694, 1, 1, 393230, 1, 2, 458766, 65537, 2, 524302, 65537, 1, 589838, 131073, 1, 655374, 1, 2, 655373, 131073, 1, 655372, 65537, 2, 655371, 1, 1, -65522, 1, 0, 0, 1, 2, 65536, 65537, 2, 131072, 1, 2, 196608, 131073, 0, 327680, 131073, 2, 393216, 131073, 1, 458752, 65537, 1, 524288, 1, 1, 589824, 1, 1, 589825, 131073, 2, 589826, 65537, 2, 589827, 1, 1, 589828, 65537, 0, 589829, 65537, 2, 589830, 1, 0, 589831, 131073, 0, 589832, 1, 2, 589833, 1, 2, 589834, 1, 0, 589835, 131073, 1, 589836, 65537, 0, 589837, 65537, 1, 13, 65537, 1, 12, 1, 1, 11, 1, 2, 10, 65537, 0, 9, 1, 2, 8, 1, 1, 7, 65537, 0, 6, 131073, 1, 5, 1, 0, 4, 131073, 0, 3, 65537, 0, 2, 131073, 2, 1, 131073, 2, 262157, 65537, 0, 327693, 131073, 0, 524301, 1, 0, 458765, 131073, 2, 393229, 65537, 0, 524289, 65537, 0, 524290, 65537, 2, 524291, 1, 2, 524292, 131073, 1, 524293, 65537, 1, 524294, 131073, 0, 524295, 1, 2, 524296, 131073, 1, 524297, 131073, 0, 524298, 131073, 2, 524299, 131073, 0, 524300, 65537, 0, 458753, 131073, 1, 458754, 1, 0, 458755, 1, 0, 458756, 1, 1, 458757, 1, 1, 458758, 65537, 1, 458759, 1, 2, 458760, 131073, 0, 458761, 131073, 0, 458762, 131073, 0, 458763, 131073, 0, 458764, 131073, 0, 393228, 65537, 0, 327692, 65537, 2, 262156, 65537, 0, 196610, 65537, 0, 196611, 1, 1, 196612, 65537, 1, 196613, 131073, 2, 196614, 1, 2, 196615, 1, 0, 262152, 131073, 2, 327687, 65537, 0, 393223, 131073, 2, 65545, 131073, 0, 131081, 65537, 2, 196618, 65537, 1)
+layer_0/tile_data = PackedInt32Array(14, 1, 0, -65523, 1, 2, -65524, 1, 0, -65525, 131073, 0, -65526, 131073, 1, -65527, 131073, 0, -65528, 65537, 1, -65529, 131073, 0, -65530, 65537, 0, -65531, 65537, 1, -65532, 65537, 0, -65533, 65537, 0, -65534, 65537, 1, -65535, 131073, 0, -65536, 131073, 0, -1, 65537, 0, 65535, 65537, 0, 131071, 1, 2, 196607, 65537, 0, 262143, 65537, 0, 327679, 1, 2, 393215, 131073, 1, 458751, 131073, 0, 524287, 65537, 1, 589823, 65537, 1, 655359, 1, 0, 720895, 131073, 0, 655367, 65537, 0, 655368, 131073, 1, 655369, 65537, 1, 655370, 131073, 0, 655366, 131073, 1, 655365, 65537, 1, 655364, 131073, 0, 655363, 1, 0, 655362, 65537, 0, 655361, 1, 1, 655360, 1, 1, 262158, 1, 2, 327694, 131073, 1, 393230, 131073, 1, 458766, 1, 2, 524302, 1, 2, 589838, 1, 0, 655374, 131073, 1, 655373, 131073, 0, 655372, 1, 2, 655371, 131073, 0, -65522, 65537, 0, 0, 1, 0, 65536, 131073, 0, 131072, 65537, 0, 196608, 1, 2, 327680, 65537, 0, 393216, 65537, 1, 458752, 1, 0, 524288, 131073, 0, 589824, 131073, 0, 589825, 1, 1, 589826, 65537, 1, 589827, 131073, 0, 589828, 131073, 0, 589829, 131073, 0, 589830, 1, 2, 589831, 65537, 0, 589832, 1, 2, 589833, 65537, 0, 589834, 65537, 0, 589835, 131073, 0, 589836, 65537, 0, 589837, 65537, 0, 13, 65537, 0, 12, 131073, 0, 11, 65537, 1, 10, 131073, 0, 9, 1, 2, 8, 1, 2, 7, 65537, 1, 6, 131073, 1, 5, 131073, 1, 4, 131073, 0, 3, 1, 2, 2, 131073, 0, 1, 131073, 1, 262157, 65537, 0, 327693, 131073, 1, 524301, 65537, 1, 458765, 1, 2, 393229, 1, 0, 524289, 1, 0, 524290, 131073, 1, 524291, 131073, 0, 524292, 65537, 0, 524293, 65537, 0, 524294, 65537, 1, 524295, 131073, 0, 524296, 65537, 0, 524297, 131073, 1, 524298, 1, 1, 524299, 65537, 0, 524300, 1, 0, 458753, 131073, 1, 458754, 131073, 0, 458755, 65537, 0, 458756, 65537, 0, 458757, 65537, 0, 458758, 131073, 0, 458759, 65537, 0, 458760, 1, 2, 458761, 131073, 0, 458762, 65537, 0, 458763, 65537, 1, 458764, 131073, 0, 393228, 1, 2, 327692, 131073, 1, 262156, 131073, 1, 196610, 1, 2, 196611, 65537, 0, 196612, 65537, 0, 196613, 1, 2, 196614, 65537, 1, 196615, 1, 0, 262152, 131073, 0, 327687, 1, 2, 393223, 131073, 0, 65545, 131073, 0, 131081, 65537, 1, 196618, 131073, 0)
 
 [node name="hazardMap" type="TileMap" parent="."]
 z_index = 2
@@ -178,16 +160,40 @@ can't stop. They keep moving
 until they hit something."
 
 [node name="Label2" type="Label" parent="objects"]
-offset_left = 208.0
-offset_top = 271.0
-offset_right = 936.0
-offset_bottom = 484.0
+offset_left = 1121.0
+offset_top = 755.0
+offset_right = 1849.0
+offset_bottom = 968.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 50
-text = "WASD"
+text = "WASD or Arrow 
+keys to move."
+
+[node name="Label3" type="Label" parent="objects"]
+offset_left = 145.0
+offset_top = 319.0
+offset_right = 873.0
+offset_bottom = 532.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Hit R or Space to undo. 
+Shift R restarts the level."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="objects"]
+offset_left = 1272.0
+offset_top = 216.0
+offset_right = 2000.0
+offset_bottom = 429.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Escape or P to pause"
+horizontal_alignment = 1
 
 [node name="ui" parent="." instance=ExtResource("10_bx3pt")]
 unique_name_in_owner = true
 levelTitle = "Level 1"
-levelSubText = "template"
+levelSubText = "Moving around and stuff"

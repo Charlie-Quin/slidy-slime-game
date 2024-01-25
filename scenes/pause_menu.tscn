@@ -1,0 +1,96 @@
+[gd_scene load_steps=2 format=3 uid="uid://dit83jljqfy4v"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_g2y7n"]
+
+[node name="pause menu" type="Control"]
+process_mode = 3
+z_index = 600
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g2y7n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.603922)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 2
+
+[node name="vboxcontainer" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 1
+offset_right = 400.0
+offset_bottom = 597.0
+theme_override_constants/separation = 60
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/vboxcontainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/vboxcontainer"]
+layout_mode = 2
+
+[node name="resume" type="Button" parent="CenterContainer/Panel/vboxcontainer"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+
+[node name="main menu" type="Button" parent="CenterContainer/Panel/vboxcontainer"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(200, 2.08165e-12)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 218.0
+offset_bottom = 769.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Controls:
+
+Movement:
+WASD
+Arrow keys
+
+Undo:
+R or Space
+
+Restart:
+Shift + R
+
+Pause:
+Escape or P"
+
+[connection signal="pressed" from="CenterContainer/Panel/vboxcontainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/vboxcontainer/main menu" to="." method="_on_main_menu_pressed"]
