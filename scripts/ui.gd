@@ -30,11 +30,8 @@ func _process(delta):
 	$Camera2D.position.x = (1920.0/2.0) / zoom
 	$Camera2D.position.y = (1080.0/2.0) / zoom
 	
-	
-	
 	$title.scale = Vector2.ONE * (1.0/zoom)
 	$frame.scale = Vector2.ONE * (1.0/zoom)
-	$screenRect.scale = Vector2.ONE * (1.0/zoom)
 	
 	$"CanvasLayer/pause menu".scale = Vector2.ONE * (1.0/zoom)
 	

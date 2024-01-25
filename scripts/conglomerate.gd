@@ -170,6 +170,7 @@ func moveBlobs(direction):
 			if blob.tryMoveMeAndMyBuddies(direction):
 				somethingMoved = true
 			
+		
 		if !somethingMoved:
 			break
 	
@@ -209,7 +210,7 @@ func moveBlobs(direction):
 			
 			#print(conglomerate.blobs.size())
 			
-			await get_tree().create_timer(0.05).timeout
+			await get_tree().create_timer(0.1).timeout
 			await conglomerate.move()
 		
 	
