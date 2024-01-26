@@ -11,7 +11,7 @@ func _ready():
 	$AnimationPlayer.play("point")
 	
 	normal = Vector2.LEFT.rotated(rotation)
-	planePos = position + (normal * -128)
+	planePos = position + (normal * -128 * 2)
 	
 	wait = 7
 	pass # Replace with function body.

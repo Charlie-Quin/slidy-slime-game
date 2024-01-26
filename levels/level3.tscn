@@ -152,7 +152,7 @@ position = Vector2(1664, 1408)
 
 [node name="exit" parent="objects" instance=ExtResource("8_dv0ds")]
 position = Vector2(2432, 384)
-nextScene = "res://levels/level 4.tscn"
+nextScene = "res://levels/Level 3.5 .tscn"
 
 [node name="Tip" parent="objects" instance=ExtResource("9_lguo6")]
 position = Vector2(1152, 1280)
