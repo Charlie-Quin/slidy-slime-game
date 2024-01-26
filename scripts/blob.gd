@@ -315,6 +315,13 @@ func setColor(num):
 	
 	pass
 
+func persistUpdate():
+	
+	if !alive:
+		$CollisionShape2D.disabled = true
+	
+	pass
+
 func save():
 	var save_dict = {
 		"filename" : get_scene_file_path(),

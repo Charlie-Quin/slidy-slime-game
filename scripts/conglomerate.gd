@@ -131,17 +131,17 @@ func playerControl():
 		running = true
 		moveBlobs(dir)
 	elif dir != Vector2.ZERO and running:
-		Globals.accelerateTweens()
-		queuedDir = dir
-	elif queuedDir != Vector2.ZERO and !running:
-		get_tree().get_first_node_in_group("TimeKeeper").save_game()
-		running = true
-		moveBlobs(queuedDir)
-		queuedDir = Vector2.ZERO
+		Globals.shouldAccel = true
+		#queuedDir = dir
+	#elif queuedDir != Vector2.ZERO and !running:
+		#get_tree().get_first_node_in_group("TimeKeeper").save_game()
+		#running = true
+		#moveBlobs(queuedDir)
+		#queuedDir = Vector2.ZERO
 	
 	pass
 
-var queuedDir = Vector2.ZERO
+#var queuedDir = Vector2.ZERO
 
 
 func persistUpdate():
@@ -171,7 +171,7 @@ func moveBlobs(direction):
 		blob.lastPos = blob.position
 		
 	
-	
+	var numMoved = 0
 	
 	while true:
 		var somethingMoved = false
@@ -184,7 +184,12 @@ func moveBlobs(direction):
 		
 		if !somethingMoved:
 			break
+		else:
+			numMoved += 1
 	
+	if numMoved == 0:
+		running = false
+		return
 	
 	var blobSpeed = Globals.BLOBSPEED; #tiles per second
 	
@@ -214,7 +219,7 @@ func moveBlobs(direction):
 	
 	await Globals.allDone
 	
-	print("finished that")
+	#print("finished that")
 	
 	if isPlayable:
 		#print("------------------------")
@@ -228,8 +233,11 @@ func moveBlobs(direction):
 				continue
 			
 			#print(conglomerate.blobs.size())
+			var timerTween2 = get_tree().create_tween() as Tween
+			Globals.allTweensCurrently.append(timerTween2)
+			timerTween2.tween_property(self,"fakeValue",5.0,0.1)
 			
-			await get_tree().create_timer(0.1).timeout
+			await Globals.allDone
 			await conglomerate.move()
 		
 	
