@@ -1,21 +1,21 @@
 [gd_scene load_steps=15 format=3 uid="uid://cobo6bqjtuvqe"]
 
-[ext_resource type="Script" path="res://TimeKeeper.gd" id="1_4d13a"]
-[ext_resource type="Shader" path="res://removeWhite.gdshader" id="2_01lbf"]
-[ext_resource type="Texture2D" uid="uid://br6to3h8joanq" path="res://sprites/all hazards.png" id="3_foere"]
-[ext_resource type="Texture2D" uid="uid://bdfkpk4hf7cyd" path="res://sprites/rock 2.png" id="4_lxeqe"]
-[ext_resource type="Texture2D" uid="uid://djrck0wdxi8a1" path="res://sprites/images.jpg" id="5_gwolr"]
-[ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_xlluy"]
-[ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="7_l05xm"]
-[ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="8_yfk53"]
-[ext_resource type="PackedScene" uid="uid://bh0diad6fd6yi" path="res://scenes/tip.tscn" id="9_8x14b"]
-[ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://scenes/ui.tscn" id="9_da86b"]
+[ext_resource type="Script" path="res://TimeKeeper.gd" id="1_4f6k3"]
+[ext_resource type="Shader" path="res://removeWhite.gdshader" id="2_x0qxn"]
+[ext_resource type="Texture2D" uid="uid://br6to3h8joanq" path="res://sprites/all hazards.png" id="3_mr0fh"]
+[ext_resource type="Texture2D" uid="uid://bdfkpk4hf7cyd" path="res://sprites/rock 2.png" id="4_tkbt1"]
+[ext_resource type="Texture2D" uid="uid://djrck0wdxi8a1" path="res://sprites/images.jpg" id="5_wcfbg"]
+[ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_1ewpu"]
+[ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="7_x0xhc"]
+[ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="8_1yx8n"]
+[ext_resource type="PackedScene" uid="uid://bh0diad6fd6yi" path="res://scenes/tip.tscn" id="9_onwx7"]
+[ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://scenes/ui.tscn" id="10_as7bi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byfqg"]
-shader = ExtResource("2_01lbf")
+shader = ExtResource("2_x0qxn")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wukcy"]
-texture = ExtResource("3_foere")
+texture = ExtResource("3_mr0fh")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -61,7 +61,7 @@ texture_region_size = Vector2i(128, 128)
 0:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pob62"]
-texture = ExtResource("4_lxeqe")
+texture = ExtResource("4_tkbt1")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -117,7 +117,7 @@ sources/1 = SubResource("TileSetAtlasSource_pob62")
 sources/0 = SubResource("TileSetAtlasSource_wukcy")
 
 [node name="level1" type="Node2D" groups=["TimeKeeper"]]
-script = ExtResource("1_4d13a")
+script = ExtResource("1_4f6k3")
 
 [node name="rockTiles" type="TileMap" parent="."]
 z_index = 1
@@ -133,43 +133,43 @@ offset_top = -31346.0
 offset_right = -43806.0
 offset_bottom = -25202.0
 scale = Vector2(10, 10)
-texture = ExtResource("5_gwolr")
+texture = ExtResource("5_wcfbg")
 stretch_mode = 1
 
 [node name="congomerates" type="Node2D" parent="."]
 
-[node name="BLUE_PLAYABLE" parent="congomerates" instance=ExtResource("6_xlluy")]
+[node name="BLUE_PLAYABLE" parent="congomerates" instance=ExtResource("6_1ewpu")]
 
-[node name="blob" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_l05xm")]
+[node name="blob" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_x0xhc")]
 position = Vector2(896, 896)
 
-[node name="PINK_CLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("6_xlluy")]
+[node name="PINK_CLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("6_1ewpu")]
 options = 1
 
-[node name="PURPLE_COUNTERCLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("6_xlluy")]
+[node name="PURPLE_COUNTERCLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("6_1ewpu")]
 options = 2
 
-[node name="GREEN_SNAKEY" parent="congomerates" instance=ExtResource("6_xlluy")]
+[node name="GREEN_SNAKEY" parent="congomerates" instance=ExtResource("6_1ewpu")]
 options = 3
 
-[node name="ORANGE_UPDOWN" parent="congomerates" instance=ExtResource("6_xlluy")]
+[node name="ORANGE_UPDOWN" parent="congomerates" instance=ExtResource("6_1ewpu")]
 options = 4
 
-[node name="RED_RIGHTLEFT" parent="congomerates" instance=ExtResource("6_xlluy")]
+[node name="RED_RIGHTLEFT" parent="congomerates" instance=ExtResource("6_1ewpu")]
 options = 5
 
-[node name="GREY_NULL" parent="congomerates" instance=ExtResource("6_xlluy")]
+[node name="GREY_NULL" parent="congomerates" instance=ExtResource("6_1ewpu")]
 options = 6
 
-[node name="blob" parent="congomerates/GREY_NULL" instance=ExtResource("7_l05xm")]
+[node name="blob" parent="congomerates/GREY_NULL" instance=ExtResource("7_x0xhc")]
 position = Vector2(384, 640)
 
-[node name="blob2" parent="congomerates/GREY_NULL" instance=ExtResource("7_l05xm")]
+[node name="blob2" parent="congomerates/GREY_NULL" instance=ExtResource("7_x0xhc")]
 position = Vector2(512, 640)
 
 [node name="objects" type="Node2D" parent="."]
 
-[node name="exit" parent="objects" instance=ExtResource("8_yfk53")]
+[node name="exit" parent="objects" instance=ExtResource("8_1yx8n")]
 position = Vector2(1024, 896)
 rotation = 1.5708
 nextScene = "res://levels/level 4.tscn"
@@ -186,7 +186,7 @@ text = "All colors of coral destroy blobs
 that overlap them."
 horizontal_alignment = 1
 
-[node name="Tip2" parent="objects" instance=ExtResource("9_8x14b")]
+[node name="Tip2" parent="objects" instance=ExtResource("9_onwx7")]
 position = Vector2(640, 640)
 text = "It's ok to lose blobs. 
 You only need one to win the level."
@@ -194,7 +194,7 @@ textScale = 1.268
 offsetX = -162.162
 offsetY = -108.108
 
-[node name="ui" parent="." instance=ExtResource("9_da86b")]
+[node name="ui" parent="." instance=ExtResource("10_as7bi")]
 unique_name_in_owner = true
-levelTitle = "Level 3.5"
+levelTitle = "Level 4"
 levelSubText = "Intro to coral"
