@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bta1bpv453imn"]
+[gd_scene load_steps=16 format=3 uid="uid://bta1bpv453imn"]
 
 [ext_resource type="Script" path="res://TimeKeeper.gd" id="1_uv3he"]
 [ext_resource type="Shader" path="res://removeWhite.gdshader" id="2_dy3h2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_oy17v"]
 [ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="7_mqhel"]
 [ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="8_dv0ds"]
+[ext_resource type="PackedScene" uid="uid://bh0diad6fd6yi" path="res://scenes/tip.tscn" id="9_lguo6"]
 [ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://scenes/ui.tscn" id="10_05ja5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byfqg"]
@@ -151,6 +152,27 @@ position = Vector2(1664, 1408)
 
 [node name="exit" parent="objects" instance=ExtResource("8_dv0ds")]
 position = Vector2(2432, 384)
+nextScene = "res://levels/level 4.tscn"
+
+[node name="Tip" parent="objects" instance=ExtResource("9_lguo6")]
+position = Vector2(1152, 1280)
+text = "You let all your blobs be taken by another color. 
+
+Instead of letting them hit you, hit them. Then they will become your color."
+showWhenTouched = false
+showWhenPlayerIsDead = true
+
+[node name="Label" type="Label" parent="objects"]
+offset_left = 384.0
+offset_top = 640.0
+offset_right = 1123.0
+offset_bottom = 853.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "The purple blob will move in a counter
+clockwise circle."
+horizontal_alignment = 1
 
 [node name="ui" parent="." instance=ExtResource("10_05ja5")]
 unique_name_in_owner = true

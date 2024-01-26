@@ -307,6 +307,8 @@ func getBlobInPosition(position):
 	return null
 	
 
+func isPlayer():
+	return parentConglomerate.isPlayable
 
 
 func setColor(num):

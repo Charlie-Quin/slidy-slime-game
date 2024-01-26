@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d37oshs1xrx5a"]
+[gd_scene load_steps=16 format=3 uid="uid://d37oshs1xrx5a"]
 
 [ext_resource type="Script" path="res://TimeKeeper.gd" id="1_8j2aq"]
 [ext_resource type="Shader" path="res://removeWhite.gdshader" id="2_bhn61"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_1me3b"]
 [ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="7_qu55p"]
 [ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="8_p65qo"]
+[ext_resource type="PackedScene" uid="uid://bh0diad6fd6yi" path="res://scenes/tip.tscn" id="9_m3mfl"]
 [ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://scenes/ui.tscn" id="10_bx3pt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byfqg"]
@@ -144,6 +145,7 @@ options = 6
 
 [node name="exit" parent="objects" instance=ExtResource("8_p65qo")]
 position = Vector2(1792, 384)
+nextScene = "res://levels/level2.tscn"
 
 [node name="Label" type="Label" parent="objects"]
 offset_left = 218.0
@@ -190,6 +192,16 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 50
 text = "Escape or P to pause"
 horizontal_alignment = 1
+
+[node name="Tip" parent="objects" instance=ExtResource("9_m3mfl")]
+position = Vector2(128, 640)
+text = "You're stuck. 
+Hit R to Undo."
+
+[node name="Tip2" parent="objects" instance=ExtResource("9_m3mfl")]
+position = Vector2(1024, 640)
+text = "You're stuck. 
+Hit R to Undo."
 
 [node name="ui" parent="." instance=ExtResource("10_bx3pt")]
 unique_name_in_owner = true

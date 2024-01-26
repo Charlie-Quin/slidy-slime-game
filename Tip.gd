@@ -2,10 +2,14 @@
 
 extends Node2D
 
-@export var text : String = "" 
+@export_multiline var text : String = "" 
+
+@export var showWhenTouched = true
+@export var showWhenPlayerIsDead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Label.visible = false
 	pass # Replace with function body.
 
 
@@ -19,12 +23,21 @@ func _process(delta):
 	
 	
 	var showTip = false
-	for body in ($Area2D as Area2D).get_overlapping_bodies():
+	
+	if showWhenTouched and ($RayCast2D as RayCast2D).is_colliding():
+		showTip = true
+	
+	
+	if showWhenPlayerIsDead:
+		var playerExists = false
+		for blob in get_tree().get_nodes_in_group("blob"):
+			if blob.isPlayer():
+				playerExists = true
+				break
 		
-		if body.parentConglomerate.isPlayable:
+		if !playerExists:
 			showTip = true
 		
-		pass
 	
 	$Label.visible = showTip
 	

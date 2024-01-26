@@ -148,6 +148,7 @@ position = Vector2(128, 640)
 
 [node name="exit" parent="objects" instance=ExtResource("8_rtycf")]
 position = Vector2(1792, 384)
+nextScene = "res://levels/level3.tscn"
 
 [node name="ui" parent="." instance=ExtResource("10_hablc")]
 unique_name_in_owner = true

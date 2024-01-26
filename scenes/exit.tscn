@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgx3wk2g6w3ay"]
+[gd_scene load_steps=11 format=3 uid="uid://bgx3wk2g6w3ay"]
 
 [ext_resource type="Script" path="res://scripts/exit.gd" id="1_v6kun"]
 [ext_resource type="Texture2D" uid="uid://dutdn4f8ygsr" path="res://sprites/424321-200.png" id="2_i2ehx"]
@@ -19,10 +19,50 @@ size = Vector2(2304, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ft0q"]
 size = Vector2(128, 768)
 
+[sub_resource type="Animation" id="Animation_ks2hn"]
+resource_name = "point"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("424321-200:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(20, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_u1eyw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("424321-200:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nt4g4"]
+_data = {
+"RESET": SubResource("Animation_u1eyw"),
+"point": SubResource("Animation_ks2hn")
+}
+
 [node name="exit" type="Node2D" groups=["Persist_Update"]]
+z_index = 3
 script = ExtResource("1_v6kun")
 
 [node name="424321-200" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.580392)
 texture = ExtResource("2_i2ehx")
 
 [node name="safe wall" type="StaticBody2D" parent="."]
@@ -59,3 +99,8 @@ debug_color = Color(0.941176, 0.215686, 0.309804, 0.419608)
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="end hazard wall"]
 position = Vector2(4672, 0)
 shape = SubResource("RectangleShape2D_5ft0q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nt4g4")
+}

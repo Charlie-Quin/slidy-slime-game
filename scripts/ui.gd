@@ -30,10 +30,14 @@ func _process(delta):
 	$Camera2D.position.x = (1920.0/2.0) / zoom
 	$Camera2D.position.y = (1080.0/2.0) / zoom
 	
-	$title.scale = Vector2.ONE * (1.0/zoom)
-	$frame.scale = Vector2.ONE * (1.0/zoom)
 	
-	$"CanvasLayer/pause menu".scale = Vector2.ONE * (1.0/zoom)
+	var newScale = Vector2.ONE * (1.0/zoom)
+	$title.scale = newScale
+	$frame.scale = newScale
+	
+	$"CanvasLayer/pause menu".scale = newScale
+	$screenRect.scale = newScale
+	
 	
 	pass
 
@@ -45,7 +49,7 @@ func changeScene(newScene):
 	
 	await $AnimationPlayer.animation_finished
 	
-	print("tree",get_tree())
+	#print("tree",get_tree())
 	
 	get_tree().change_scene_to_file(newScene)
 	

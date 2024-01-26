@@ -7,9 +7,11 @@ func _process(delta):
 	
 	if !ignoreInput and Input.is_action_just_pressed("rewind"):
 		load_game()
+		Globals.allTweensCurrently.clear()
 		pass
 	
-	
+	if !ignoreInput and Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 	
 	
 	

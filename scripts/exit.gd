@@ -8,6 +8,8 @@ var planePos = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	$AnimationPlayer.play("point")
+	
 	normal = Vector2.LEFT.rotated(rotation)
 	planePos = position + (normal * -128)
 	
