@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var nextScene : PackedScene
+@export var nextScene : String
 
 var normal = Vector2.ZERO
 var planePos = Vector2.ZERO

@@ -47,5 +47,5 @@ func changeScene(newScene):
 	
 	print("tree",get_tree())
 	
-	get_tree().change_scene_to_packed(newScene)
+	get_tree().change_scene_to_file(newScene)
 	

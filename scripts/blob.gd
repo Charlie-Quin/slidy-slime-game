@@ -83,7 +83,7 @@ func checkIfShouldDie():
 		
 		
 		var blobTween = get_tree().create_tween()
-		var blobSpeed = 50.0
+		var blobSpeed = Globals.BLOBSPEED;
 		
 		var duration = (lastPos.distance_to(position) / STEPSIZE / blobSpeed)
 		var delay = stepsDelayBeforeMovement/blobSpeed
@@ -106,6 +106,8 @@ func checkIfShouldDie():
 		blobTween.set_parallel(true).tween_property(self,"scale",Vector2.ONE * 3.0,popTime)
 		blobTween.set_parallel(false).tween_property(self,"dying",false,0)
 		
+		Globals.allTweensCurrently.append(blobTween)
+		
 		var newParent = get_parent().get_parent()
 		
 		get_parent().remove_child(self)
@@ -114,7 +116,9 @@ func checkIfShouldDie():
 		newParent.add_child(self)
 		
 		alive = false
-		var dying = true
+		dying = true
+		$CollisionShape2D.disabled = true
+		
 		
 	
 	

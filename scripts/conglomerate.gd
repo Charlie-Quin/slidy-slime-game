@@ -12,6 +12,8 @@ var _colorNum = 0
 const STEPSIZE = 128
 var blobs = []
 
+var fakeValue = 5
+
 enum dir {UP,DOWN,RIGHT,LEFT}
 var movementPattern = []
 
@@ -128,9 +130,18 @@ func playerControl():
 		get_tree().get_first_node_in_group("TimeKeeper").save_game()
 		running = true
 		moveBlobs(dir)
+	elif dir != Vector2.ZERO and running:
+		Globals.accelerateTweens()
+		queuedDir = dir
+	elif queuedDir != Vector2.ZERO and !running:
+		get_tree().get_first_node_in_group("TimeKeeper").save_game()
+		running = true
+		moveBlobs(queuedDir)
+		queuedDir = Vector2.ZERO
 	
 	pass
 
+var queuedDir = Vector2.ZERO
 
 
 func persistUpdate():
@@ -175,7 +186,7 @@ func moveBlobs(direction):
 			break
 	
 	
-	var blobSpeed = 50.0 #tiles per second
+	var blobSpeed = Globals.BLOBSPEED; #tiles per second
 	
 	for blob in blobs:
 		var blobTween = get_tree().create_tween()
@@ -194,8 +205,16 @@ func moveBlobs(direction):
 			blobTween.tween_callback( blob.setColor.bind(options)).set_delay(delay)
 		blobTween.tween_property(blob,"position",newPosition,duration)
 		
+		Globals.allTweensCurrently.append(blobTween)
+		
 	
-	await get_tree().create_timer(longestLength).timeout
+	var timerTween = get_tree().create_tween() as Tween
+	Globals.allTweensCurrently.append(timerTween)
+	timerTween.tween_property(self,"fakeValue",5.0,longestLength)
+	
+	await Globals.allDone
+	
+	print("finished that")
 	
 	if isPlayable:
 		#print("------------------------")
@@ -216,6 +235,8 @@ func moveBlobs(direction):
 	
 	#await get_tree().create_timer(0.1).timeout
 	
+	if isPlayable:
+		Globals.shouldAccel = false
 	
 	emit_signal("finishedMoving")
 	running = false

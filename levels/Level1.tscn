@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d37oshs1xrx5a"]
+[gd_scene load_steps=15 format=3 uid="uid://d37oshs1xrx5a"]
 
 [ext_resource type="Script" path="res://TimeKeeper.gd" id="1_8j2aq"]
 [ext_resource type="Shader" path="res://removeWhite.gdshader" id="2_bhn61"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_1me3b"]
 [ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="7_qu55p"]
 [ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="8_p65qo"]
-[ext_resource type="PackedScene" uid="uid://ce6cpx18teet2" path="res://scenes/world.tscn" id="9_rwddd"]
 [ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://scenes/ui.tscn" id="10_bx3pt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byfqg"]
@@ -145,7 +144,6 @@ options = 6
 
 [node name="exit" parent="objects" instance=ExtResource("8_p65qo")]
 position = Vector2(1792, 384)
-nextScene = ExtResource("9_rwddd")
 
 [node name="Label" type="Label" parent="objects"]
 offset_left = 218.0
