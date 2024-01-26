@@ -159,6 +159,9 @@ position = Vector2(1152, 1280)
 text = "You let all your blobs be taken by another color. 
 
 Instead of letting them hit you, hit them. Then they will become your color."
+textScale = 2.072
+offsetX = -288.288
+offsetY = -216.216
 showWhenTouched = false
 showWhenPlayerIsDead = true
 

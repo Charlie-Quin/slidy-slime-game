@@ -30,14 +30,16 @@ func _process(delta):
 			shouldExit = false
 			canExit = false
 		
+		#check if there is at least one blob on the other side.
 		if normal.dot(body.position - planePos) < 0:
 			if body.parentConglomerate.isPlayable:
 				canExit = true
 			continue
 		
-		if body.parentConglomerate.isPlayable and body.alive:
-			shouldExit = false
-			break
+		#doesn't let you go if any blobs are left behind
+		#if body.parentConglomerate.isPlayable and body.alive:
+			#shouldExit = false
+			#break
 		
 	
 	#print("unaltered",shouldExit)

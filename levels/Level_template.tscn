@@ -142,6 +142,9 @@ stretch_mode = 1
 [node name="blob" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_c0qyb")]
 position = Vector2(896, 640)
 
+[node name="blob2" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_c0qyb")]
+position = Vector2(896, 384)
+
 [node name="PINK_CLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("6_l1be3")]
 options = 1
 

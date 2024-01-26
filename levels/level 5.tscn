@@ -1,21 +1,21 @@
 [gd_scene load_steps=16 format=3 uid="uid://bks6wappbv8e8"]
 
-[ext_resource type="Script" path="res://TimeKeeper.gd" id="1_8k1s1"]
-[ext_resource type="Shader" path="res://removeWhite.gdshader" id="2_a5ipy"]
-[ext_resource type="Texture2D" uid="uid://bdfkpk4hf7cyd" path="res://sprites/rock 2.png" id="3_00rti"]
-[ext_resource type="Texture2D" uid="uid://br6to3h8joanq" path="res://sprites/all hazards.png" id="4_h7pfp"]
-[ext_resource type="Texture2D" uid="uid://djrck0wdxi8a1" path="res://sprites/images.jpg" id="5_6ug5h"]
-[ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_ovcow"]
-[ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="7_jhbv2"]
-[ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="8_jwgxe"]
-[ext_resource type="PackedScene" uid="uid://bh0diad6fd6yi" path="res://scenes/tip.tscn" id="9_ms2xh"]
-[ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://scenes/ui.tscn" id="10_yun3a"]
+[ext_resource type="Script" path="res://TimeKeeper.gd" id="1_otmra"]
+[ext_resource type="Shader" path="res://removeWhite.gdshader" id="2_fv2in"]
+[ext_resource type="Texture2D" uid="uid://bdfkpk4hf7cyd" path="res://sprites/rock 2.png" id="3_myuka"]
+[ext_resource type="Texture2D" uid="uid://br6to3h8joanq" path="res://sprites/all hazards.png" id="4_fqnr0"]
+[ext_resource type="Texture2D" uid="uid://djrck0wdxi8a1" path="res://sprites/images.jpg" id="5_u0c8h"]
+[ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_40gvo"]
+[ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="7_un31w"]
+[ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="8_aq6hi"]
+[ext_resource type="PackedScene" uid="uid://bh0diad6fd6yi" path="res://scenes/tip.tscn" id="9_y2rlx"]
+[ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://scenes/ui.tscn" id="10_sgb45"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byfqg"]
-shader = ExtResource("2_a5ipy")
+shader = ExtResource("2_fv2in")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pob62"]
-texture = ExtResource("3_00rti")
+texture = ExtResource("3_myuka")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -54,7 +54,7 @@ physics_layer_0/collision_mask = 5
 sources/1 = SubResource("TileSetAtlasSource_pob62")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdq5v"]
-texture = ExtResource("4_h7pfp")
+texture = ExtResource("4_fqnr0")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -92,7 +92,7 @@ physics_layer_0/collision_mask = 8
 sources/0 = SubResource("TileSetAtlasSource_cdq5v")
 
 [node name="level1" type="Node2D" groups=["TimeKeeper"]]
-script = ExtResource("1_8k1s1")
+script = ExtResource("1_otmra")
 
 [node name="rockTiles" type="TileMap" parent="."]
 z_index = 1
@@ -115,63 +115,63 @@ offset_top = -31346.0
 offset_right = -43806.0
 offset_bottom = -25202.0
 scale = Vector2(10, 10)
-texture = ExtResource("5_6ug5h")
+texture = ExtResource("5_u0c8h")
 stretch_mode = 1
 
 [node name="congomerates" type="Node2D" parent="."]
 
-[node name="BLUE_PLAYABLE" parent="congomerates" instance=ExtResource("6_ovcow")]
+[node name="BLUE_PLAYABLE" parent="congomerates" instance=ExtResource("6_40gvo")]
 
-[node name="blob" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_jhbv2")]
+[node name="blob" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_un31w")]
 position = Vector2(256, 256)
 
-[node name="blob2" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_jhbv2")]
+[node name="blob2" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_un31w")]
 position = Vector2(256, 384)
 
-[node name="blob3" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_jhbv2")]
+[node name="blob3" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_un31w")]
 position = Vector2(256, 512)
 
-[node name="blob4" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_jhbv2")]
+[node name="blob4" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_un31w")]
 position = Vector2(256, 640)
 
-[node name="blob5" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_jhbv2")]
+[node name="blob5" parent="congomerates/BLUE_PLAYABLE" instance=ExtResource("7_un31w")]
 position = Vector2(256, 768)
 
-[node name="PINK_CLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("6_ovcow")]
+[node name="PINK_CLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("6_40gvo")]
 options = 1
 
-[node name="PURPLE_COUNTERCLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("6_ovcow")]
+[node name="PURPLE_COUNTERCLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("6_40gvo")]
 options = 2
 
-[node name="GREEN_SNAKEY" parent="congomerates" instance=ExtResource("6_ovcow")]
+[node name="GREEN_SNAKEY" parent="congomerates" instance=ExtResource("6_40gvo")]
 options = 3
 
-[node name="ORANGE_UPDOWN" parent="congomerates" instance=ExtResource("6_ovcow")]
+[node name="ORANGE_UPDOWN" parent="congomerates" instance=ExtResource("6_40gvo")]
 options = 4
 
-[node name="blob" parent="congomerates/ORANGE_UPDOWN" instance=ExtResource("7_jhbv2")]
+[node name="blob" parent="congomerates/ORANGE_UPDOWN" instance=ExtResource("7_un31w")]
 position = Vector2(1024, 1280)
 
-[node name="blob2" parent="congomerates/ORANGE_UPDOWN" instance=ExtResource("7_jhbv2")]
+[node name="blob2" parent="congomerates/ORANGE_UPDOWN" instance=ExtResource("7_un31w")]
 position = Vector2(1280, 1280)
 
-[node name="blob3" parent="congomerates/ORANGE_UPDOWN" instance=ExtResource("7_jhbv2")]
+[node name="blob3" parent="congomerates/ORANGE_UPDOWN" instance=ExtResource("7_un31w")]
 position = Vector2(1152, 1280)
 
-[node name="RED_RIGHTLEFT" parent="congomerates" instance=ExtResource("6_ovcow")]
+[node name="RED_RIGHTLEFT" parent="congomerates" instance=ExtResource("6_40gvo")]
 options = 5
 
-[node name="GREY_NULL" parent="congomerates" instance=ExtResource("6_ovcow")]
+[node name="GREY_NULL" parent="congomerates" instance=ExtResource("6_40gvo")]
 options = 6
 
 [node name="objects" type="Node2D" parent="."]
 
-[node name="exit" parent="objects" instance=ExtResource("8_jwgxe")]
+[node name="exit" parent="objects" instance=ExtResource("8_aq6hi")]
 position = Vector2(1536, 1792)
 rotation = 1.5708
 nextScene = "res://levels/Level_template.tscn"
 
-[node name="Tip" parent="objects" instance=ExtResource("9_ms2xh")]
+[node name="Tip" parent="objects" instance=ExtResource("9_y2rlx")]
 position = Vector2(1920, 1536)
 text = "You need 4 blobs to get past this part."
 
@@ -187,8 +187,8 @@ text = "All coral will destroy any blob
 that overlaps it."
 horizontal_alignment = 1
 
-[node name="ui" parent="." instance=ExtResource("10_yun3a")]
+[node name="ui" parent="." instance=ExtResource("10_sgb45")]
 unique_name_in_owner = true
-levelTitle = "Level 4"
+levelTitle = "Level 5"
 levelSubText = "Split"
 zoom = 0.577

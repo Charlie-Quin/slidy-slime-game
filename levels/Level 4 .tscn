@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cobo6bqjtuvqe"]
+[gd_scene load_steps=15 format=3 uid="uid://cobo6bqjtuvqe"]
 
 [ext_resource type="Script" path="res://TimeKeeper.gd" id="1_4d13a"]
 [ext_resource type="Shader" path="res://removeWhite.gdshader" id="2_01lbf"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_xlluy"]
 [ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="7_l05xm"]
 [ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="8_yfk53"]
+[ext_resource type="PackedScene" uid="uid://bh0diad6fd6yi" path="res://scenes/tip.tscn" id="9_8x14b"]
 [ext_resource type="PackedScene" uid="uid://cyq4ti20oy01y" path="res://scenes/ui.tscn" id="9_da86b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byfqg"]
@@ -184,6 +185,14 @@ theme_override_font_sizes/font_size = 50
 text = "All colors of coral destroy blobs 
 that overlap them."
 horizontal_alignment = 1
+
+[node name="Tip2" parent="objects" instance=ExtResource("9_8x14b")]
+position = Vector2(640, 640)
+text = "It's ok to lose blobs. 
+You only need one to win the level."
+textScale = 1.268
+offsetX = -162.162
+offsetY = -108.108
 
 [node name="ui" parent="." instance=ExtResource("9_da86b")]
 unique_name_in_owner = true

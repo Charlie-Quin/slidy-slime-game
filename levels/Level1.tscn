@@ -194,14 +194,16 @@ text = "Escape or P to pause"
 horizontal_alignment = 1
 
 [node name="Tip" parent="objects" instance=ExtResource("9_m3mfl")]
-position = Vector2(128, 640)
-text = "You're stuck. 
-Hit R to Undo."
+position = Vector2(131, 665)
+text = "You're stuck.
+Press R to Undo."
+offsetX = 72.072
 
 [node name="Tip2" parent="objects" instance=ExtResource("9_m3mfl")]
-position = Vector2(1024, 640)
-text = "You're stuck. 
-Hit R to Undo."
+position = Vector2(1027, 658)
+text = "You're stuck.
+Press R to Undo."
+offsetX = 72.072
 
 [node name="ui" parent="." instance=ExtResource("10_bx3pt")]
 unique_name_in_owner = true

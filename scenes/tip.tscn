@@ -4,19 +4,20 @@
 
 [node name="Tip" type="Node2D"]
 script = ExtResource("1_pmsf4")
-text = "there's a tip here"
+text = "there's a tip"
 
 [node name="Label" type="Label" parent="."]
 z_index = 30
-offset_left = -546.0
-offset_top = -317.0
-offset_right = 570.0
-offset_bottom = 110.0
+layout_direction = 3
+offset_left = -558.0
+offset_top = -213.5
+offset_right = 558.0
+offset_bottom = 213.5
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 40
-text = "there's a tip here"
+text = "there's a tip"
 horizontal_alignment = 1
 autowrap_mode = 3
 
