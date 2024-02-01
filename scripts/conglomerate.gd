@@ -188,8 +188,15 @@ func moveBlobs(direction):
 			numMoved += 1
 	
 	if numMoved == 0:
-		running = false
-		return
+		var gotBlob = false
+		for blob in blobs:
+			if blob.new:
+				gotBlob = true
+		
+		if !gotBlob:
+			get_tree().get_first_node_in_group("TimeKeeper").discardLastSave()
+			running = false
+			return
 	
 	var blobSpeed = Globals.BLOBSPEED; #tiles per second
 	
@@ -207,6 +214,7 @@ func moveBlobs(direction):
 		blob.lastPos = newPosition
 		
 		if blob.new:
+			blob.new = false
 			blobTween.tween_callback( blob.setColor.bind(options)).set_delay(delay)
 		blobTween.tween_property(blob,"position",newPosition,duration)
 		

@@ -172,7 +172,7 @@ position = Vector2(512, 640)
 [node name="exit" parent="objects" instance=ExtResource("8_1yx8n")]
 position = Vector2(1024, 896)
 rotation = 1.5708
-nextScene = "res://levels/level 4.tscn"
+nextScene = "res://levels/level5.tscn"
 
 [node name="Label" type="Label" parent="objects"]
 offset_left = 512.0

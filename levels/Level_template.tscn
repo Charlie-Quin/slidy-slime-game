@@ -4,7 +4,7 @@
 [ext_resource type="Shader" path="res://removeWhite.gdshader" id="2_xjio5"]
 [ext_resource type="Texture2D" uid="uid://bdfkpk4hf7cyd" path="res://sprites/rock 2.png" id="3_58vbo"]
 [ext_resource type="Texture2D" uid="uid://br6to3h8joanq" path="res://sprites/all hazards.png" id="4_aw1fm"]
-[ext_resource type="Texture2D" uid="uid://djrck0wdxi8a1" path="res://sprites/images.jpg" id="5_6ohdc"]
+[ext_resource type="Texture2D" uid="uid://d0ddk168yge88" path="res://sprites/sand.png" id="5_dmkv5"]
 [ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="6_l1be3"]
 [ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="7_c0qyb"]
 [ext_resource type="PackedScene" uid="uid://bgx3wk2g6w3ay" path="res://scenes/exit.tscn" id="8_v51ao"]
@@ -129,10 +129,9 @@ layer_0/tile_data = PackedInt32Array(14, 65537, 0, -65523, 1, 0, -65524, 131073,
 [node name="background" type="TextureRect" parent="."]
 offset_left = -55454.0
 offset_top = -31346.0
-offset_right = -43806.0
-offset_bottom = -25202.0
-scale = Vector2(10, 10)
-texture = ExtResource("5_6ohdc")
+offset_right = 72930.0
+offset_bottom = 63118.0
+texture = ExtResource("5_dmkv5")
 stretch_mode = 1
 
 [node name="congomerates" type="Node2D" parent="."]

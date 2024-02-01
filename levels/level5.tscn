@@ -169,7 +169,7 @@ options = 6
 [node name="exit" parent="objects" instance=ExtResource("8_aq6hi")]
 position = Vector2(1536, 1792)
 rotation = 1.5708
-nextScene = "res://levels/Level_template.tscn"
+nextScene = "res://credits.tscn"
 
 [node name="Tip" parent="objects" instance=ExtResource("9_y2rlx")]
 position = Vector2(1920, 1536)

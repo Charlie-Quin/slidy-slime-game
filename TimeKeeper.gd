@@ -3,6 +3,7 @@ extends Node
 var past = []
 var ignoreInput = false
 
+
 func _process(delta):
 	
 	if !ignoreInput and Input.is_action_just_pressed("rewind"):
@@ -40,6 +41,13 @@ func save_game():
 	past.append(instance)
 	
 
+func discardLastSave():
+	if past.size() == 0:
+		return
+	
+	past.pop_back()
+	
+	
 
 # Note: This can be called from anywhere inside the tree. This function
 # is path independent.

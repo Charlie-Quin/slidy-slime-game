@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyq4ti20oy01y"]
+[gd_scene load_steps=8 format=3 uid="uid://cyq4ti20oy01y"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_1bs6y"]
 [ext_resource type="PackedScene" uid="uid://dit83jljqfy4v" path="res://scenes/pause_menu.tscn" id="2_dacyp"]
+[ext_resource type="AudioStream" uid="uid://b0ker7b08nlp0" path="res://Pleasant Creek Pack/Pleasant Creek Loop.wav" id="3_rg7df"]
 
 [sub_resource type="Animation" id="Animation_n1i5u"]
 length = 0.001
@@ -168,3 +169,7 @@ follow_viewport_enabled = true
 [node name="pause menu" parent="CanvasLayer" instance=ExtResource("2_dacyp")]
 visible = false
 custom_minimum_size = Vector2(1920, 1080)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rg7df")
+autoplay = true

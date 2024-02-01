@@ -322,6 +322,8 @@ func persistUpdate():
 	if !alive:
 		$CollisionShape2D.disabled = true
 	
+	fixed = false;
+	
 	pass
 
 func save():

@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxkwi4nmpigyn"]
+
+[ext_resource type="Texture2D" uid="uid://d0ddk168yge88" path="res://sprites/sand.png" id="1_sw5io"]
+[ext_resource type="Script" path="res://credits.gd" id="1_vwdo8"]
+[ext_resource type="PackedScene" uid="uid://b4vm8pnf0byoj" path="res://scenes/conglomerate.tscn" id="2_6vhfa"]
+[ext_resource type="PackedScene" uid="uid://bxy4fy5iij8xt" path="res://scenes/blob.tscn" id="3_nbvp7"]
+[ext_resource type="AudioStream" uid="uid://dgfrgxsc8t3yu" path="res://awesomeness.wav" id="5_yjyge"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vwdo8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sw5io")
+stretch_mode = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 384.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 100
+text = "Thank you for playing this game! That's all the content as of now."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -364.0
+offset_top = -106.5
+offset_right = 364.0
+offset_bottom = 106.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "I intend to release an update adding some assets I just didn't have time to implement, though I don't know this jam's policy on late submissions/updates."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -219.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Art by Moncadeaux, Programming by Deojee.
+Thank you for playing!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="congomerates" type="Node2D" parent="."]
+
+[node name="BLUE_PLAYABLE" parent="congomerates" instance=ExtResource("2_6vhfa")]
+
+[node name="PINK_CLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("2_6vhfa")]
+options = 1
+
+[node name="blob" parent="congomerates/PINK_CLOCKWISE_CIRCLE" instance=ExtResource("3_nbvp7")]
+position = Vector2(342, 794)
+
+[node name="PURPLE_COUNTERCLOCKWISE_CIRCLE" parent="congomerates" instance=ExtResource("2_6vhfa")]
+options = 2
+
+[node name="blob" parent="congomerates/PURPLE_COUNTERCLOCKWISE_CIRCLE" instance=ExtResource("3_nbvp7")]
+position = Vector2(1473, 718)
+
+[node name="GREEN_SNAKEY" parent="congomerates" instance=ExtResource("2_6vhfa")]
+options = 3
+
+[node name="blob" parent="congomerates/GREEN_SNAKEY" instance=ExtResource("3_nbvp7")]
+position = Vector2(1594, 477)
+
+[node name="ORANGE_UPDOWN" parent="congomerates" instance=ExtResource("2_6vhfa")]
+options = 4
+
+[node name="blob" parent="congomerates/ORANGE_UPDOWN" instance=ExtResource("3_nbvp7")]
+position = Vector2(1708, 242)
+
+[node name="RED_RIGHTLEFT" parent="congomerates" instance=ExtResource("2_6vhfa")]
+options = 5
+
+[node name="blob" parent="congomerates/RED_RIGHTLEFT" instance=ExtResource("3_nbvp7")]
+position = Vector2(138, 598)
+
+[node name="GREY_NULL" parent="congomerates" instance=ExtResource("2_6vhfa")]
+options = 6
+
+[node name="blob" parent="congomerates/GREY_NULL" instance=ExtResource("3_nbvp7")]
+position = Vector2(404, 415)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 961.0
+offset_right = 386.0
+offset_bottom = 1052.0
+theme_override_font_sizes/font_size = 60
+text = "main menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yjyge")
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
